@@ -1,0 +1,158 @@
+---
+slug: spring-boot-iot-dashboard
+title: Spring Boot IoT Dashboard
+summary: A comprehensive dashboard for monitoring IoT devices with real-time data visualization and alert management.
+role: Full Stack Developer & DevOps Engineer
+dates: January 2024 - March 2024
+tech: [Spring Boot, React, PostgreSQL, Docker, AWS, Grafana, InfluxDB]
+status: Completed
+heroImage: /images/projects/iot-dashboard-hero.jpg
+repoUrl: https://github.com/danielog/spring-boot-iot-dashboard
+liveUrl: https://iot-dashboard-demo.vercel.app
+featured: true
+tags: [spring boot, react, iot, aws, docker]
+metrics:
+  - label: Devices Monitored
+    value: 10,000+
+  - label: Response Time
+    value: Less than 200ms
+  - label: Uptime
+    value: 99.9%
+screenshots:
+  - src: /images/projects/iot-dashboard-1.jpg
+    alt: IoT Dashboard Overview
+    caption: Main dashboard showing device status and metrics
+  - src: /images/projects/iot-dashboard-2.jpg
+    alt: Real-time Analytics
+    caption: Real-time data visualization with interactive charts
+  - src: /images/projects/iot-dashboard-3.jpg
+    alt: Alert Management
+    caption: Alert management system with notification center
+---
+
+## Project Overview
+
+The Spring Boot IoT Dashboard is a comprehensive monitoring solution designed to handle thousands of IoT devices in real-time. Built with a microservices architecture, it provides scalable data collection, processing, and visualization capabilities.
+
+## The Challenge
+
+The client needed a robust system to monitor and manage over 10,000 IoT devices across multiple locations. The existing solution was struggling with:
+
+- Poor performance under high load
+- Limited real-time capabilities
+- Inadequate alert management
+- Scalability issues
+
+## Solution Architecture
+
+### Backend (Spring Boot)
+
+I designed a microservices architecture using Spring Boot with the following components:
+
+- **Device Management Service**: Handles device registration, authentication, and status tracking
+- **Data Collection Service**: Processes incoming telemetry data with high throughput
+- **Alert Engine**: Real-time alert processing and notification management
+- **Analytics Service**: Data aggregation and business intelligence
+
+### Frontend (React)
+
+The dashboard was built with React and modern libraries:
+
+- **Real-time Updates**: WebSocket connections for live data streaming
+- **Interactive Charts**: Chart.js for data visualization
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **State Management**: Redux Toolkit for complex state handling
+
+### Infrastructure
+
+- **Containerization**: Docker for consistent deployments
+- **Orchestration**: AWS ECS for container management
+- **Database**: PostgreSQL with read replicas for high availability
+- **Monitoring**: Grafana dashboards with InfluxDB for metrics
+- **CI/CD**: GitHub Actions for automated deployments
+
+## Key Features
+
+### Real-time Monitoring
+
+<Callout type="info">
+The system processes over 1 million data points per hour with sub-200 millisecond response times.
+</Callout>
+
+- Live device status tracking
+- Real-time telemetry data visualization
+- Historical data analysis with time-series queries
+- Customizable dashboard widgets
+
+### Alert Management
+
+- Rule-based alert configuration
+- Multi-channel notifications (email, SMS, webhook)
+- Alert escalation and acknowledgment
+- Historical alert analytics
+
+### Scalability & Performance
+
+- Horizontal scaling with load balancers
+- Database sharding for large datasets
+- Caching layer with Redis
+- CDN integration for static assets
+
+## Technical Implementation
+
+### Data Processing Pipeline
+
+```typescript
+// Example data processing flow
+const processDeviceData = async (payload: DeviceData) => {
+  // Validate and sanitize data
+  const validatedData = await validateDeviceData(payload);
+  
+  // Store in time-series database
+  await storeTimeSeriesData(validatedData);
+  
+  // Check alert conditions
+  await checkAlertConditions(validatedData);
+  
+  // Update device status
+  await updateDeviceStatus(validatedData.deviceId);
+};
+```
+
+### Real-time Communication
+
+The system uses WebSocket connections for real-time updates:
+
+- Bidirectional communication for device commands
+- Efficient message routing with Redis Pub/Sub
+- Connection management and reconnection logic
+- Message queuing for offline devices
+
+## Results & Impact
+
+The new system delivered significant improvements:
+
+- **Performance**: 95% reduction in response times
+- **Scalability**: Handled 10x more devices than the previous system
+- **Reliability**: 99.9% uptime with automated failover
+- **User Experience**: Intuitive interface with real-time updates
+
+## Lessons Learned
+
+This project taught me valuable lessons about:
+
+1. **Microservices Design**: Proper service boundaries and communication patterns
+2. **Performance Optimization**: Database indexing, caching strategies, and query optimization
+3. **Real-time Systems**: WebSocket management and message queuing
+4. **DevOps Practices**: Container orchestration and monitoring strategies
+
+## Future Enhancements
+
+Potential improvements for future iterations:
+
+- Machine learning integration for predictive analytics
+- Mobile application for field technicians
+- Advanced visualization with 3D device mapping
+- Integration with third-party IoT platforms
+
+The project successfully demonstrates modern full-stack development practices with a focus on scalability, performance, and user experience.

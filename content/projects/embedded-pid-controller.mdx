@@ -1,0 +1,243 @@
+---
+slug: embedded-pid-controller
+title: Embedded PID Controller System
+summary: A real-time PID controller implementation for industrial automation with advanced tuning algorithms and web-based configuration interface.
+role: Embedded Systems Developer & Firmware Engineer
+dates: September 2023 - December 2023
+tech: [C, FreeRTOS, ARM Cortex-M4, WebSockets, Python, Flask, React]
+status: Completed
+heroImage: /images/projects/pid-controller-hero.jpg
+repoUrl: https://github.com/danielog/embedded-pid-controller
+liveUrl: https://pid-controller-demo.vercel.app
+featured: true
+tags: [embedded, c, freertos, python, react, control systems]
+metrics:
+  - label: Control Frequency
+    value: 1kHz
+  - label: Response Time
+    value: Less than 1ms
+  - label: Accuracy
+    value: ±0.1%
+screenshots:
+  - src: /images/projects/pid-controller-1.jpg
+    alt: Hardware Setup
+    caption: Embedded controller board with industrial sensors
+  - src: /images/projects/pid-controller-2.jpg
+    alt: Web Interface
+    caption: Real-time monitoring and configuration interface
+  - src: /images/projects/pid-controller-3.jpg
+    alt: Tuning Dashboard
+    caption: Advanced PID tuning with auto-calibration features
+---
+
+## Project Overview
+
+The Embedded PID Controller System is a high-performance real-time control solution designed for industrial automation. It combines low-level embedded programming with modern web technologies to provide precise control with intuitive configuration interfaces.
+
+## The Challenge
+
+Industrial processes require precise control with:
+
+- Sub-millisecond response times
+- High-frequency control loops (1kHz+)
+- Real-time monitoring and adjustment
+- Robust communication protocols
+- Easy configuration and tuning
+
+## System Architecture
+
+### Hardware Layer
+
+**Microcontroller**: ARM Cortex-M4 with FPU
+- 168 MHz clock speed for high-performance computing
+- Hardware floating-point unit for precise calculations
+- Multiple ADC channels for sensor inputs
+- PWM outputs for actuator control
+
+**Communication Interface**:
+- Ethernet connectivity for network communication
+- Serial interfaces for legacy system integration
+- Modbus RTU/TCP protocol support
+
+### Firmware (C + FreeRTOS)
+
+The embedded firmware was developed using C with FreeRTOS for real-time task management:
+
+```c
+// PID controller task
+void PID_Control_Task(void *pvParameters) {
+    TickType_t xLastWakeTime = xTaskGetTickCount();
+    const TickType_t xFrequency = pdMS_TO_TICKS(1); // 1kHz
+    
+    while(1) {
+        // Read sensor values
+        float setpoint = getSetpoint();
+        float process_value = readSensor();
+        
+        // Calculate PID output
+        float output = calculatePID(setpoint, process_value);
+        
+        // Apply output to actuator
+        setActuatorOutput(output);
+        
+        // Send telemetry data
+        sendTelemetryData(setpoint, process_value, output);
+        
+        vTaskDelayUntil(&xLastWakeTime, xFrequency);
+    }
+}
+```
+
+### Web Interface (React + Flask)
+
+**Backend (Python Flask)**:
+- RESTful API for configuration and monitoring
+- WebSocket server for real-time data streaming
+- Database integration for historical data storage
+- Authentication and authorization system
+
+**Frontend (React)**:
+- Real-time data visualization with Chart.js
+- Interactive PID parameter tuning interface
+- System configuration and calibration tools
+- Responsive design for mobile and desktop
+
+## Key Features
+
+### Real-time Control
+
+<Callout type="info">
+The system maintains 1kHz control frequency with consistent timing accuracy.
+</Callout>
+
+- **High-frequency Control Loop**: 1kHz sampling rate with less than 1ms response time
+- **Multiple PID Channels**: Support for up to 8 independent control loops
+- **Advanced Tuning**: Auto-tuning algorithms with manual override options
+- **Safety Features**: Watchdog timers and fault detection
+
+### Communication & Monitoring
+
+- **WebSocket Integration**: Real-time bidirectional communication
+- **RESTful API**: Standard HTTP endpoints for configuration
+- **Modbus Support**: Integration with existing industrial systems
+- **Data Logging**: Historical data storage and analysis
+
+### User Interface
+
+- **Real-time Visualization**: Live charts showing setpoint, process value, and output
+- **Parameter Tuning**: Interactive sliders for PID gains (Kp, Ki, Kd)
+- **System Configuration**: Easy setup for different process types
+- **Alarm Management**: Configurable alerts and notifications
+
+## Technical Implementation
+
+### PID Algorithm Implementation
+
+The PID controller uses a modified algorithm with derivative kick prevention:
+
+```c
+typedef struct {
+    float Kp, Ki, Kd;
+    float setpoint;
+    float last_error;
+    float integral;
+    float derivative;
+    float output_min, output_max;
+} PIDController;
+
+float calculatePID(PIDController* pid, float process_value) {
+    float error = pid->setpoint - process_value;
+    
+    // Proportional term
+    float P = pid->Kp * error;
+    
+    // Integral term with windup protection
+    pid->integral += error * dt;
+    if (pid->integral > integral_max) pid->integral = integral_max;
+    if (pid->integral < integral_min) pid->integral = integral_min;
+    float I = pid->Ki * pid->integral;
+    
+    // Derivative term (derivative on measurement)
+    float D = -pid->Kd * (process_value - pid->last_process_value) / dt;
+    
+    // Calculate output
+    float output = P + I + D;
+    
+    // Apply output limits
+    if (output > pid->output_max) output = pid->output_max;
+    if (output < pid->output_min) output = pid->output_min;
+    
+    pid->last_error = error;
+    pid->last_process_value = process_value;
+    
+    return output;
+}
+```
+
+### WebSocket Communication
+
+Real-time data streaming between embedded system and web interface:
+
+```javascript
+// WebSocket client for real-time updates
+const ws = new WebSocket('ws://controller.local:8080/ws');
+
+ws.onmessage = (event) => {
+    const data = JSON.parse(event.data);
+    updateChart(data);
+    updatePIDDisplay(data);
+};
+
+// Send configuration updates
+function updatePIDParameters(params) {
+    ws.send(JSON.stringify({
+        type: 'config_update',
+        data: params
+    }));
+}
+```
+
+## Performance Results
+
+The system achieved excellent performance metrics:
+
+- **Control Frequency**: Consistent 1kHz execution
+- **Response Time**: Less than 1ms from sensor reading to output
+- **Accuracy**: ±0.1% steady-state error
+- **Stability**: Robust performance across varying load conditions
+
+## Integration & Deployment
+
+### Industrial Integration
+
+- **Modbus Protocol**: Seamless integration with existing SCADA systems
+- **Legacy Support**: Backward compatibility with older control systems
+- **Network Configuration**: Flexible IP and communication settings
+- **Remote Access**: Secure web-based configuration and monitoring
+
+### Quality Assurance
+
+- **Extensive Testing**: Unit tests, integration tests, and field trials
+- **Documentation**: Comprehensive user manuals and technical specifications
+- **Certification**: CE marking and industrial safety compliance
+- **Support**: Long-term maintenance and technical support
+
+## Lessons Learned
+
+This project provided valuable insights into:
+
+1. **Real-time Systems**: Timing constraints and deterministic behavior
+2. **Embedded Programming**: Low-level optimization and resource management
+3. **Industrial Protocols**: Modbus integration and industrial communication
+4. **Full-stack Development**: Bridging embedded systems with modern web technologies
+
+## Future Enhancements
+
+Potential improvements for future versions:
+
+- **Machine Learning**: Adaptive PID tuning using ML algorithms
+- **Edge Computing**: Local AI processing for predictive control
+- **Cloud Integration**: Remote monitoring and analytics platform
+- **Advanced Algorithms**: Model predictive control (MPC) implementation
+
+The project demonstrates the successful integration of embedded systems with modern web technologies, delivering industrial-grade performance with user-friendly interfaces.
