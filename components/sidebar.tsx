@@ -1,18 +1,22 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Github, Linkedin, Mail, FileText, Menu, X } from 'lucide-react'
+import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 const navigation = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '#hero', fallback: '/', icon: Home },
+  { name: 'About', href: '#about', fallback: '/#about' },
+  { name: 'Skills', href: '#skills', fallback: '/#skills' },
+  { name: 'Projects', href: '#projects', fallback: '/#projects' },
+  { name: 'Contact', href: '#contact', fallback: '/#contact' },
 ]
 
 export function Sidebar() {
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
   const scrollToSection = (href: string) => {
@@ -52,28 +56,40 @@ export function Sidebar() {
               Daniel
             </h1>
             <p className="text-muted-foreground mb-1">Full Stack Developer</p>
-            <p className="text-sm text-muted-foreground">Based in San Francisco, CA</p>
+            <p className="text-sm text-muted-foreground">Based in Phoenix, AZ</p>
           </div>
 
           <nav className="flex-1">
             <ul className="space-y-2">
               {navigation.map((item) => (
                 <li key={item.name}>
-                  <button
-                    onClick={() => scrollToSection(item.href)}
-                    className="w-full text-left px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
-                  >
-                    {item.name}
-                  </button>
+                  {pathname?.startsWith('/projects') || pathname === '/contact' ? (
+                    item.fallback ? (
+                      <Link
+                        href={item.name === 'Home' ? '/' : item.fallback}
+                        className="flex items-center gap-2 px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
+                      >
+                        {item.icon && <item.icon size={18} />}
+                        {item.name}
+                      </Link>
+                    ) : null
+                  ) : (
+                    <button
+                      onClick={() => scrollToSection(item.href)}
+                      className="w-full text-left px-3 py-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
+                    >
+                      {item.name}
+                    </button>
+                  )}
                 </li>
               ))}
             </ul>
           </nav>
 
           <div className="space-y-4">
-            <div className="flex space-x-4">
+            <div className="flex justify-center space-x-4">
               <a
-                href="https://github.com/danielog"
+                href="https://github.com/DanielAndi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
@@ -82,7 +98,7 @@ export function Sidebar() {
                 <Github size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/danielog"
+                href="https://www.linkedin.com/feed/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
@@ -90,13 +106,13 @@ export function Sidebar() {
               >
                 <Linkedin size={20} />
               </a>
-              <a
-                href="mailto:daniel@example.com"
+              <Link
+                href="/contact#contact-form"
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"
-                aria-label="Email"
+                aria-label="Contact"
               >
                 <Mail size={20} />
-              </a>
+              </Link>
             </div>
 
             <Button asChild className="w-full">

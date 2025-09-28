@@ -3,8 +3,7 @@ import { Section } from '@/components/section'
 import { ProjectCard } from '@/components/project-card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Mail, FileText } from 'lucide-react'
-import { config } from '@/lib/config'
+import { Mail } from 'lucide-react'
 import type { Project } from '@/lib/types'
 
 export default function Home() {
@@ -32,20 +31,6 @@ export default function Home() {
             performant, and accessible web experiences. I love building
             applications that make a difference.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg">
-              <a href={`mailto:${config.contact.email}`}>
-                <Mail size={20} className="mr-2" />
-                Get In Touch
-              </a>
-            </Button>
-            <Button asChild variant="outline" size="lg">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-                <FileText size={20} className="mr-2" />
-                View Resume
-              </a>
-            </Button>
-          </div>
         </div>
       </Section>
 
@@ -125,10 +110,10 @@ export default function Home() {
             Let&apos;s discuss how we can work together to bring your ideas to life.
           </p>
           <Button asChild size="lg">
-            <a href={`mailto:${config.contact.email}`}>
+            <Link href="/contact#contact-form">
               <Mail size={20} className="mr-2" />
               Send me an email
-            </a>
+            </Link>
           </Button>
         </div>
       </Section>

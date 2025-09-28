@@ -14,26 +14,34 @@ export default function ContactPage() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setStatus('idle')
     setIsSubmitting(true)
-    
-    // Create mailto link with form data
-    const subject = encodeURIComponent(formData.subject)
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )
-    const mailtoLink = `mailto:${config.contact.email}?subject=${subject}&body=${body}`
-    
-    // Open email client
-    window.location.href = mailtoLink
-    
-    // Reset form and show success message
-    setTimeout(() => {
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setStatus('success')
       setFormData({ name: '', email: '', subject: '', message: '' })
+    } catch (error) {
+      console.error(error)
+      setStatus('error')
+    } finally {
       setIsSubmitting(false)
-    }, 1000)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -132,6 +140,12 @@ export default function ContactPage() {
               <Button type="submit" size="lg" disabled={isSubmitting} className="w-full">
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
+              {status === 'success' && (
+                <p className="text-sm text-emerald-600">Message sent! I&apos;ll be in touch soon.</p>
+              )}
+              {status === 'error' && (
+                <p className="text-sm text-destructive">Something went wrong. Please try again later.</p>
+              )}
             </form>
           </div>
 
@@ -142,23 +156,20 @@ export default function ContactPage() {
                 Contact Information
               </h2>
               <div className="space-y-4">
-                <a
-                  href={`mailto:${config.contact.email}`}
-                  className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
+                <div className="flex items-center gap-3 text-muted-foreground">
                   <Mail size={20} />
-                  {config.contact.email}
-                </a>
+                  <span>{config.contact.email}</span>
+                </div>
                 <a
-                  href="tel:+1234567890"
+                  href="tel:+6232920433"
                   className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   <Phone size={20} />
-                  +1 (234) 567-8900
+                  +1 (623) 292-0433
                 </a>
                 <div className="flex items-center gap-3 text-muted-foreground">
                   <MapPin size={20} />
-                  San Francisco, CA
+                  Phoenix, AZ
                 </div>
               </div>
             </div>
@@ -169,7 +180,7 @@ export default function ContactPage() {
               </h3>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/danielog"
+                  href="https://github.com/DanielAndi"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors duration-200"
@@ -178,7 +189,7 @@ export default function ContactPage() {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/danielog"
+                  href="https://www.linkedin.com/in/daniel-grijalva/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors duration-200"
