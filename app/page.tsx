@@ -4,7 +4,7 @@ import { ProjectCard } from '@/components/project-card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Mail } from 'lucide-react'
-import type { Project } from '@/lib/types'
+import type { Project } from '@/lib/contentlayer-types'
 
 export default function Home() {
   // Fallback for development when contentlayer isn&apos;t built yet
