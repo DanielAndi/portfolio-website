@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Section } from '@/components/section'
 import { ProjectCard } from '@/components/project-card'
 import { Button } from '@/components/ui/button'
@@ -27,9 +28,7 @@ export default function Home() {
             <span className="text-accent">Daniel</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-            I&apos;m a full-stack developer passionate about creating beautiful,
-            performant, and accessible web experiences. I love building
-            applications that make a difference.
+          "Knowledge is power, information is liberating, and education is the premise of progress"
           </p>
         </div>
       </Section>
@@ -39,20 +38,21 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate full-stack developer with over 5 years of
-              experience building web applications. I specialize in modern
-              JavaScript frameworks and have a keen eye for design and user
-              experience.
+              B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              When I&apos;m not coding, you can find me exploring new technologies,
-              contributing to open source projects, or sharing knowledge with
-              the developer community.
+              I'm a passionate software engineer with a strong foundation in computer science and a passion for building innovative solutions.
             </p>
           </div>
           <div className="lg:order-first">
-            <div className="aspect-square max-w-sm mx-auto bg-muted rounded-2xl flex items-center justify-center">
-              <span className="text-4xl text-muted-foreground">👨‍💻</span>
+            <div className="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden">
+              <Image
+                src="/images/profile.jpg"
+                alt="Daniel - Software Engineer"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -60,27 +60,35 @@ export default function Home() {
 
       {/* Skills Section */}
       <Section id="skills" title="Skills & Technologies">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="card p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Frontend</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Languages</h3>
             <div className="flex flex-wrap gap-2">
-              {['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map((skill) => (
+              {['C', 'C++', 'Python', 'Java', 'JavaScript', 'TypeScript', 'SQL', 'HTML/CSS'].map((skill) => (
                 <Badge key={skill} variant="secondary">{skill}</Badge>
               ))}
             </div>
           </div>
           <div className="card p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Backend</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Frameworks & Tools</h3>
             <div className="flex flex-wrap gap-2">
-              {['Node.js', 'Python', 'PostgreSQL', 'MongoDB', 'AWS'].map((skill) => (
+              {['Node.js', 'React', 'Next.js', 'PostgreSQL', 'Docker', 'Git/GitHub', 'AWS', 'Linux/Unix'].map((skill) => (
                 <Badge key={skill} variant="secondary">{skill}</Badge>
               ))}
             </div>
           </div>
           <div className="card p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Tools</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Cloud & DevOps</h3>
             <div className="flex flex-wrap gap-2">
-              {['Git', 'Docker', 'Figma', 'Vercel', 'Postman'].map((skill) => (
+              {['AWS Lambda', 'AWS S3', 'AWS RDS', 'CI/CD', 'Cloud Systems', 'API Design', 'Data Modeling'].map((skill) => (
+                <Badge key={skill} variant="secondary">{skill}</Badge>
+              ))}
+            </div>
+          </div>
+          <div className="card p-6">
+            <h3 className="text-lg font-semibold text-foreground mb-4">Specialized</h3>
+            <div className="flex flex-wrap gap-2">
+              {['OpenGL', 'IoT', 'FPGA', 'Unity', 'C#', 'Concurrency', 'Parallel Programming', 'Agile/Scrum'].map((skill) => (
                 <Badge key={skill} variant="secondary">{skill}</Badge>
               ))}
             </div>
