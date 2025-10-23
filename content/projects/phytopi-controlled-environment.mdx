@@ -1,0 +1,110 @@
+---
+slug: phytopi-controlled-environment
+title: Phytopi Controlled Environment Platform
+summary: Autonomous plant growth monitoring system using Raspberry Pi, Flutter apps, Supabase telemetry, and ML-based plant health insights.
+role: Software and ML Lead
+dates: September 2025 – April 2026
+tech: [Raspberry Pi 5, Flutter, Supabase, Next.js, TypeScript, TensorFlow Lite, GitHub Actions]
+status: In Development
+heroImage: /images/projects/phytopi-dashboard.jpg
+repoUrl: https://github.com/DanielAndi/PhytoPi
+featured: true
+tags: [iot, flutter, supabase, raspberry pi, ml]
+---
+
+# Project Overview
+
+> **🌱 Smart IoT Ecosystem**
+> 
+> PhytoPi is a smart IoT ecosystem designed to automate and monitor plant growth in controlled environments. The system integrates hardware sensors, Raspberry Pi control, cloud data management, and mobile/web applications to deliver real-time environmental insights and plant health analytics.
+> 
+> The project's goal is to autonomously sustain a full bean plant growth cycle while providing users with live monitoring, alerts, and predictive analysis through a unified app interface.
+
+## 🎯 Key Features
+
+- **Environmental Monitoring:** Continuous data collection for soil moisture, temperature, humidity, light, and CO₂ sensors
+
+- **Secure Cloud Infrastructure:** Built on Supabase with Row-Level Security (RLS) for user-specific data isolation
+
+- **Cross-Platform Dashboard:** Flutter app (Android/iOS/Web) displays real-time readings, charts, and device health
+
+- **Alert System:** Automated notifications for threshold breaches (e.g., low moisture, high temperature)
+
+- **Offline-Resilient Device Agent:** Python-based Raspberry Pi agent caches data locally and uploads in batches
+
+- **AI Integration (Phase 2):** On-device TensorFlow Lite or cloud ML microservice for plant health inference
+
+- **Kiosk Mode:** Raspberry Pi can display live dashboards using Chromium in kiosk mode for lab or greenhouse use
+
+- **Monetization-Ready Architecture:** Stripe integration for subscription tiers and device management
+
+---
+
+# 🏗️ Technical Architecture
+
+## 🔧 Hardware Layer
+
+- **Raspberry Pi 5** + Sensor Array (moisture, temp, humidity, light, CO₂)
+
+- **Device Agent:** Python + SQLite for local buffering, secure upload to Supabase Edge Functions
+
+## ☁️ Backend Infrastructure
+
+- **Supabase:** PostgreSQL, RLS, Edge Functions, Storage, Auth
+
+- **CI/CD:** GitHub Actions for migrations, tests, and deployment
+
+## 📱 Frontend Applications
+
+- **Flutter:** Mobile + Web, realtime charts, user settings, notifications
+
+- **Kiosk Mode:** Raspberry Pi displays live dashboards using Chromium
+
+## 🔄 Data Flow
+
+```
+Sensors → Pi Agent → Edge Function → Supabase DB → Realtime → Mobile/Web UI
+```
+
+---
+
+## 📁 Project Structure
+
+```
+phytopi/
+├─ apps/            # Flutter mobile + web dashboard clients
+├─ services/        # pi-agent, simulator, ml microservice
+├─ ml/              # training scripts, datasets, exported TFLite models
+├─ infra/           # Supabase migrations, edge functions, Docker assets
+├─ packages/        # shared DTOs, domain models, utilities
+├─ .github/workflows/# CI/CD pipelines
+└─ docs/            # requirements, diagrams, statements of work
+```
+
+# 🎯 Impact & Outcomes
+
+## ✅ Achievements
+
+- **Fully functional MVP** achieved within 12 weeks
+
+- **Cross-platform app** + Raspberry Pi kiosk mode tested with live sensors
+
+- **Secure, scalable Supabase backend** supporting realtime ingestion and notifications
+
+- **Architecture ready** for production and future AI health analysis
+
+## 🌟 Key Highlights
+
+- **End-to-end IoT system** with device onboarding, telemetry, and visualization
+
+- **Modular Supabase schema** designed for extensibility and manufacturing integration
+
+- **Demonstrates strong grasp** of IoT, cloud computing, mobile development, and embedded systems
+
+- **Deployed internal tests** using CI/CD pipelines and Supabase observability tools
+
+---
+
+> **💡 Vision Statement**
+> 
+> PhytoPi represents a comprehensive IoT solution that bridges hardware, cloud infrastructure, and user experience to create an intelligent plant monitoring ecosystem. The project demonstrates expertise across the full technology stack while delivering a production-ready system with clear paths for AI integration and commercial scalability.

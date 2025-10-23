@@ -1,55 +1,35 @@
 // Fallback project data for when contentlayer fails on Windows
 export const fallbackProjects = [
   {
-    slug: 'embedded-pid-controller',
-    title: 'Embedded PID Controller System',
-    summary: 'A real-time PID controller implementation for industrial automation with advanced tuning algorithms and web-based configuration interface.',
-    role: 'Embedded Systems Developer & Firmware Engineer',
-    dates: 'September 2023 - December 2023',
-    tech: ['C', 'FreeRTOS', 'ARM Cortex-M4', 'WebSockets', 'Python', 'Flask', 'React'],
+    slug: 'flappy-bird-embedded',
+    title: 'Reaction-Time Flappy Bird Game (Embedded Systems)',
+    summary: 'Real-time Flappy Bird-style game implemented on Terasic DE10-Standard SoC FPGA board, demonstrating embedded hardware/software co-design with C, Verilog, and AXI-Lite communication.',
+    role: 'Embedded Systems Developer',
+    dates: 'January 2024 – March 2024',
+    tech: ['C (HPS)', 'Verilog', 'Quartus Prime', 'Platform Designer (Qsys)', 'GCC Toolchain', 'AXI-Lite', 'SPI Communication'],
     status: 'Completed',
-    heroImage: '/images/projects/pid-controller-hero.jpg',
-    repoUrl: 'https://github.com/danielog/embedded-pid-controller',
-    liveUrl: 'https://pid-controller-demo.vercel.app',
+    heroImage: '/images/projects/flappy-bird-hero.jpg',
+    repoUrl: 'https://github.com/danielog/flappy-bird-embedded',
     featured: true,
-    tags: ['embedded', 'c', 'freertos', 'python', 'react', 'control systems'],
-    url: '/projects/embedded-pid-controller',
+    tags: ['embedded', 'c', 'verilog', 'fpga', 'hardware'],
+    url: '/projects/flappy-bird-embedded',
     body: {
       code: '<!-- MDX content would be here -->'
     }
   },
   {
-    slug: 'ios-telemetry-app',
-    title: 'iOS Telemetry Data Collection App',
-    summary: 'A native iOS application for collecting and analyzing telemetry data from connected devices with advanced visualization and export capabilities.',
-    role: 'iOS Developer & Mobile Engineer',
-    dates: 'June 2023 - August 2023',
-    tech: ['Swift', 'SwiftUI', 'Core Data', 'Combine', 'Charts', 'Bluetooth LE', 'CloudKit'],
+    slug: 'phytopi-controlled-environment',
+    title: 'Phytopi Controlled Environment System',
+    summary: 'Advanced controlled environment agriculture system with automated climate control, nutrient management, and IoT monitoring for optimal plant growth.',
+    role: 'Embedded Systems & IoT Developer',
+    dates: 'March 2024 – May 2024',
+    tech: ['Arduino', 'Python', 'React', 'MQTT', 'Docker', 'PostgreSQL', 'Grafana'],
     status: 'Completed',
-    heroImage: '/images/projects/ios-telemetry-hero.jpg',
-    repoUrl: 'https://github.com/danielog/ios-telemetry-app',
-    liveUrl: 'https://apps.apple.com/app/telemetry-collector',
+    heroImage: '/images/projects/phytopi-hero.jpg',
+    repoUrl: 'https://github.com/danielog/phytopi-system',
     featured: true,
-    tags: ['ios', 'swift', 'swiftui', 'bluetooth', 'core data', 'charts'],
-    url: '/projects/ios-telemetry-app',
-    body: {
-      code: '<!-- MDX content would be here -->'
-    }
-  },
-  {
-    slug: 'spring-boot-iot-dashboard',
-    title: 'Spring Boot IoT Dashboard',
-    summary: 'A comprehensive dashboard for monitoring IoT devices with real-time data visualization and alert management.',
-    role: 'Full Stack Developer & DevOps Engineer',
-    dates: 'January 2024 - March 2024',
-    tech: ['Spring Boot', 'React', 'PostgreSQL', 'Docker', 'AWS', 'Grafana', 'InfluxDB'],
-    status: 'Completed',
-    heroImage: '/images/projects/iot-dashboard-hero.jpg',
-    repoUrl: 'https://github.com/danielog/spring-boot-iot-dashboard',
-    liveUrl: 'https://iot-dashboard-demo.vercel.app',
-    featured: true,
-    tags: ['spring boot', 'react', 'iot', 'aws', 'docker'],
-    url: '/projects/spring-boot-iot-dashboard',
+    tags: ['iot', 'agriculture', 'python', 'react', 'embedded'],
+    url: '/projects/phytopi-controlled-environment',
     body: {
       code: '<!-- MDX content would be here -->'
     }
