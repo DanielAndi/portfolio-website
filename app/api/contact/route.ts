@@ -34,7 +34,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: 'Portfolio Contact <onboarding@resend.dev>',
       to: config.contact.email,
-      reply_to: email,
+      replyTo: email,
       subject: `[Portfolio] ${subject}`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     })

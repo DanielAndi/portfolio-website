@@ -8,10 +8,10 @@ export const fallbackProjects = [
     dates: 'January 2024 – March 2024',
     tech: ['C (HPS)', 'Verilog', 'Quartus Prime', 'Platform Designer (Qsys)', 'GCC Toolchain', 'AXI-Lite', 'SPI Communication'],
     status: 'Completed',
-    heroImage: '/images/projects/flappy-bird-hero.jpg',
+    heroImage: '/images/projects/FlappyBirdDE10LCDv1.jpg',
     repoUrl: 'https://github.com/danielog/flappy-bird-embedded',
     featured: true,
-    tags: ['embedded', 'c', 'verilog', 'fpga', 'hardware'],
+    tags: ['embedded-systems', 'fpga', 'verilog', 'c', 'hardware-design', 'real-time-systems'],
     url: '/projects/flappy-bird-embedded',
     body: {
       code: '<!-- MDX content would be here -->'
@@ -25,10 +25,10 @@ export const fallbackProjects = [
     dates: 'March 2024 – May 2024',
     tech: ['Arduino', 'Python', 'React', 'MQTT', 'Docker', 'PostgreSQL', 'Grafana'],
     status: 'Completed',
-    heroImage: '/images/projects/phytopi-hero.jpg',
+    heroImage: '/images/projects/phytopi-dashboard.jpg',
     repoUrl: 'https://github.com/danielog/phytopi-system',
     featured: true,
-    tags: ['iot', 'agriculture', 'python', 'react', 'embedded'],
+    tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'ml'],
     url: '/projects/phytopi-controlled-environment',
     body: {
       code: '<!-- MDX content would be here -->'
