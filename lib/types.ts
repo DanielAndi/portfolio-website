@@ -12,7 +12,7 @@ export interface Project {
   repoUrl?: string
   liveUrl?: string
   featured: boolean
-  tags: string[]
+  tags?: string[]
   url: string
   body: {
     code: string
