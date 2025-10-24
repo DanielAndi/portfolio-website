@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { ExternalLink, Github, Calendar, User, Code } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import type { Project } from '@/lib/contentlayer-types'
+import type { Project } from '@/lib/types'
 
 interface BuildSheetProps {
   project: Project
