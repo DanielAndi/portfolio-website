@@ -28,7 +28,7 @@ export default function Home() {
             <span className="text-accent">Daniel</span>
           </h1>
           <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-          "Knowledge is power, information is liberating, and education is the premise of progress"
+          &quot;Knowledge is power, information is liberating, and education is the premise of progress&quot;
           </p>
         </div>
       </Section>
@@ -41,7 +41,7 @@ export default function Home() {
               B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate software engineer with a strong foundation in computer science and a passion for building innovative solutions.
+              I&apos;m a passionate software engineer with a strong foundation in computer science and a passion for building innovative solutions.
             </p>
           </div>
           <div className="lg:order-first">
