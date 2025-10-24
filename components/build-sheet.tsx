@@ -68,25 +68,6 @@ export function BuildSheet({ project, className }: BuildSheetProps) {
           </dd>
         </div>
 
-        {project.metrics && project.metrics.length > 0 && (
-          <div>
-            <dt className="text-sm font-medium text-muted-foreground mb-2">
-              Key Metrics
-            </dt>
-            <dd className="space-y-2">
-              {project.metrics.map((metric, index) => (
-                <div key={index} className="flex justify-between">
-                  <span className="text-sm text-muted-foreground">
-                    {metric.label}
-                  </span>
-                  <span className="text-sm font-medium text-foreground">
-                    {metric.value}
-                  </span>
-                </div>
-              ))}
-            </dd>
-          </div>
-        )}
       </dl>
 
       <div className="pt-4 border-t border-border space-y-3">
