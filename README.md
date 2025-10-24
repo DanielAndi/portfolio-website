@@ -2,6 +2,8 @@
 
 A modern, elegant portfolio website built with Next.js 14, featuring a sticky sidebar, smooth animations, and MDX-powered project case studies. Inspired by brittanychiang.com but with an original design.
 
+<!-- Deployment trigger -->
+
 ## 🚀 Features
 
 - **Modern Design**: Elegant, minimal aesthetic with sticky sidebar navigation
