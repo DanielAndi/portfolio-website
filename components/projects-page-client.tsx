@@ -3,24 +3,7 @@
 import { useState } from 'react'
 import { ProjectCard } from '@/components/project-card'
 import { ProjectFilters } from '@/components/project-filters'
-
-interface Project {
-  slug: string
-  title: string
-  summary: string
-  role: string
-  dates: string
-  tech: string[]
-  status: string
-  featured?: boolean
-  heroImage: string
-  repoUrl?: string
-  liveUrl?: string
-  url: string
-  body: {
-    code: string
-  }
-}
+import type { Project } from '@/lib/types'
 
 interface ProjectsPageClientProps {
   projects: Project[]
