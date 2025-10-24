@@ -7,7 +7,7 @@ import { motion } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
-import type { Project } from '@/lib/contentlayer-types'
+import type { Project } from '@/lib/types'
 
 interface ProjectCardProps {
   project: Project
