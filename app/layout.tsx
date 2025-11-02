@@ -27,7 +27,7 @@ export default function RootLayout({
         <div className="lg:grid lg:grid-cols-[320px_1fr] min-h-screen">
           <Sidebar />
           <main id="main" className="px-4 sm:px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">{children}</div>
+            <div className="max-w-6xl mx-auto">{children}</div>
           </main>
         </div>
       </body>

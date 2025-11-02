@@ -111,7 +111,7 @@ export default function Home() {
       </Section>
 
       {/* Contact Section */}
-      <Section id="contact" title="Let's Work Together">
+      <Section id="contact" title="Let's Work Together" className="text-center">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-lg text-muted-foreground mb-8">
             I&apos;m always interested in new opportunities and exciting projects.
