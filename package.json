@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:contentlayer": "npx contentlayer build",
+    "build:contentlayer": "npx contentlayer2 build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",

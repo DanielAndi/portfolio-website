@@ -3,5 +3,6 @@
 import projects__flappyBirdEmbeddedMdx from './projects__flappy-bird-embedded.mdx.json' with { type: 'json' }
 import projects__phytopiControlledEnvironmentMdx from './projects__phytopi-controlled-environment.mdx.json' with { type: 'json' }
 import projects__schoolHallwayOpenglMdx from './projects__school-hallway-opengl.mdx.json' with { type: 'json' }
+import projects__vrCashierSimulatorMdx from './projects__vr-cashier-simulator.mdx.json' with { type: 'json' }
 
-export const allProjects = [projects__flappyBirdEmbeddedMdx, projects__phytopiControlledEnvironmentMdx, projects__schoolHallwayOpenglMdx]
+export const allProjects = [projects__flappyBirdEmbeddedMdx, projects__phytopiControlledEnvironmentMdx, projects__schoolHallwayOpenglMdx, projects__vrCashierSimulatorMdx]

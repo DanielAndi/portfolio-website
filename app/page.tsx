@@ -99,7 +99,7 @@ export default function Home() {
       {/* Featured Projects Section */}
       <Section id="projects" title="Featured Projects">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredProjects.map((project, index) => (
+          {featuredProjects.slice(0, 3).map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
         </div>
