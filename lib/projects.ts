@@ -52,3 +52,18 @@ export function getSortedProjects(): Project[] {
   })
 }
 
+function sortProjects(projects: Project[]): Project[] {
+  return [...projects].sort((a, b) => {
+    if (a.featured && !b.featured) return -1
+    if (!a.featured && b.featured) return 1
+    return new Date(b.dates).getTime() - new Date(a.dates).getTime()
+  })
+}
+
+export function getProjectsBySpecialization(specId: string): Project[] {
+  const filtered = allProjects.filter(
+    (project) => (project.specializations ?? []).includes(specId)
+  )
+  return sortProjects(filtered)
+}
+
