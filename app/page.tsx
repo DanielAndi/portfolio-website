@@ -17,6 +17,7 @@ export default function Home() {
       title="Hi, I'm Daniel"
       titleAccent="Daniel"
       subtitle={'"Knowledge is power, information is liberating, and education is the premise of progress"'}
+      resumePath="/resume.pdf"
       projects={featuredProjects}
     />
   )
