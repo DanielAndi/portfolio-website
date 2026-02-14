@@ -30,6 +30,7 @@ export default async function SpecializationPage({ params }: SpecializationPageP
       title={specialization.label}
       resumePath={specialization.resumePath}
       projects={projects}
+      specializationId={specId}
     />
   )
 }

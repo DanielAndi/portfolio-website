@@ -18,6 +18,8 @@ export interface HomeLayoutProps {
   resumePath?: string
   /** Projects to show in the featured section */
   projects: Project[]
+  /** When set, "View All Projects" links to /projects?specialization={id} */
+  specializationId?: string
 }
 
 export function HomeLayout({
@@ -26,6 +28,7 @@ export function HomeLayout({
   subtitle,
   resumePath,
   projects,
+  specializationId,
 }: HomeLayoutProps) {
   const renderTitle = () => {
     if (titleAccent && title.includes(titleAccent)) {
@@ -137,7 +140,15 @@ export function HomeLayout({
         </div>
         <div className="text-center mt-12">
           <Button asChild variant="outline" size="lg">
-            <Link href="/projects">View All Projects</Link>
+            <Link
+              href={
+                specializationId
+                  ? `/projects?specialization=${specializationId}`
+                  : '/projects'
+              }
+            >
+              View All Projects
+            </Link>
           </Button>
         </div>
       </Section>
