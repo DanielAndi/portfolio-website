@@ -78,6 +78,12 @@ export const Project = defineDocumentType(() => ({
       description: 'Project tags for filtering',
       required: false,
     },
+    specializations: {
+      type: 'list',
+      of: { type: 'string' },
+      description: 'Specialization IDs (e.g. cloud, iot)',
+      required: false,
+    },
   },
   computedFields: {
     url: {

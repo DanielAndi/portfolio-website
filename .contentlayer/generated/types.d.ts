@@ -41,6 +41,8 @@ export type Project = {
   featured: boolean
   /** Project tags for filtering */
   tags?: string[] | undefined
+  /** Specialization IDs (e.g. cloud, iot) */
+  specializations?: string[] | undefined
   /** MDX file body */
   body: MDX
   url: string
