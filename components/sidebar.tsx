@@ -6,6 +6,9 @@ import { useState } from 'react'
 import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
+import { specializations, getSpecializationById } from '@/lib/specializations'
+
+const DEFAULT_RESUME_PATH = '/resume.pdf'
 
 const navigation = [
   { name: 'Home', href: '#hero', fallback: '/', icon: Home },
@@ -18,6 +21,11 @@ const navigation = [
 export function Sidebar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
+
+  const firstSegment = pathname?.replace(/^\/|\/$/g, '').split('/')[0] ?? ''
+  const currentSpecialization = firstSegment ? getSpecializationById(firstSegment) : null
+  const resumePath = currentSpecialization ? currentSpecialization.resumePath : DEFAULT_RESUME_PATH
+  const isHome = pathname === '/' || pathname === ''
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -84,6 +92,47 @@ export function Sidebar() {
                 </li>
               ))}
             </ul>
+            {specializations.length > 0 && (
+              <>
+                <p className="px-3 pt-6 pb-1 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  Specializations
+                </p>
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="/"
+                      className={cn(
+                        'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors duration-200 focus-ring',
+                        isHome
+                          ? 'text-foreground bg-muted font-medium'
+                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                      )}
+                    >
+                      <Home size={18} />
+                      Main
+                    </Link>
+                  </li>
+                  {specializations.map((spec) => {
+                    const isActive = pathname === `/${spec.id}` || pathname?.startsWith(`/${spec.id}/`)
+                    return (
+                      <li key={spec.id}>
+                        <Link
+                          href={`/${spec.id}`}
+                          className={cn(
+                            'flex px-3 py-2 rounded-lg transition-colors duration-200 focus-ring',
+                            isActive
+                              ? 'text-foreground bg-muted font-medium'
+                              : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                          )}
+                        >
+                          {spec.label}
+                        </Link>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            )}
           </nav>
 
           <div className="space-y-4">
@@ -116,7 +165,7 @@ export function Sidebar() {
             </div>
 
             <Button asChild className="w-full">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+              <a href={resumePath} target="_blank" rel="noopener noreferrer">
                 <FileText size={16} className="mr-2" />
                 View Resume
               </a>
