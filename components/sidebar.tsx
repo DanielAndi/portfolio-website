@@ -26,6 +26,9 @@ export function Sidebar() {
   const currentSpecialization = firstSegment ? getSpecializationById(firstSegment) : null
   const resumePath = currentSpecialization ? currentSpecialization.resumePath : DEFAULT_RESUME_PATH
   const isHome = pathname === '/' || pathname === ''
+  const subtitle = currentSpecialization
+    ? currentSpecialization.label
+    : 'Full Stack Developer'
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -63,7 +66,7 @@ export function Sidebar() {
             <h1 className="text-2xl font-bold text-foreground mb-2">
               Daniel
             </h1>
-            <p className="text-muted-foreground mb-1">Full Stack Developer</p>
+            <p className="text-muted-foreground mb-1">{subtitle}</p>
             <p className="text-sm text-muted-foreground">Based in Phoenix, AZ</p>
           </div>
 

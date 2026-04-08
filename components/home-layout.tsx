@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Mail, FileText } from 'lucide-react'
 import type { Project } from '@/lib/types'
+import { specializations } from '@/lib/specializations'
 
 export interface HomeLayoutProps {
   /** Main hero title (e.g. "Hi, I'm Daniel") */
@@ -128,6 +129,26 @@ export function HomeLayout({
               ))}
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* Specializations Section */}
+      <Section id="specializations" title="Specializations">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {specializations.map((spec) => (
+            <Link
+              key={spec.id}
+              href={`/${spec.id}`}
+              className="card p-5 hover:border-accent/60 transition-colors duration-200 focus-ring"
+            >
+              <h3 className="text-base font-semibold text-foreground mb-1">
+                {spec.label}
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                View specialization profile
+              </p>
+            </Link>
+          ))}
         </div>
       </Section>
 
