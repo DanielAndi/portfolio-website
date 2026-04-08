@@ -1,12 +1,12 @@
-// Single source of truth for specializations (URL slugs, labels, resume paths)
+// Single source of truth for skill profile routes (URL slugs, labels, resume paths)
 
-export type Specialization = {
+export type SkillProfile = {
   id: string
   label: string
   resumePath: string
 }
 
-export const specializations: Specialization[] = [
+export const skillProfiles: SkillProfile[] = [
   {
     id: 'cloud',
     label: 'Cloud / Backend Engineer',
@@ -29,6 +29,6 @@ export const specializations: Specialization[] = [
   },
 ]
 
-export function getSpecializationById(id: string): Specialization | undefined {
-  return specializations.find((s) => s.id === id)
+export function getSkillProfileById(id: string): SkillProfile | undefined {
+  return skillProfiles.find((s) => s.id === id)
 }

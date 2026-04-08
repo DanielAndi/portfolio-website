@@ -12,7 +12,7 @@ export const fallbackProjects = [
     repoUrl: 'https://github.com/danielog/flappy-bird-embedded',
     featured: true,
     tags: ['embedded-systems', 'fpga', 'verilog', 'c', 'hardware-design', 'real-time-systems'],
-    specializations: ['iot'],
+    skills: ['iot'],
     url: '/projects/flappy-bird-embedded',
     body: {
       code: '<!-- MDX content would be here -->'
@@ -30,7 +30,7 @@ export const fallbackProjects = [
     repoUrl: 'https://github.com/danielog/phytopi-system',
     featured: true,
     tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'ml'],
-    specializations: ['iot', 'cloud', 'ai-automation'],
+    skills: ['iot', 'cloud', 'ai-automation'],
     url: '/projects/phytopi-controlled-environment',
     body: {
       code: '<!-- MDX content would be here -->'

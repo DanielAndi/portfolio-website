@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import { ProjectsPageClient } from '@/components/projects-page-client'
 import { createMetadata } from '@/lib/seo'
-import { getSpecializationById } from '@/lib/specializations'
+import { getSkillProfileById } from '@/lib/skills'
 import type { Project } from '@/lib/types'
 
 const defaultMetadata = createMetadata({
@@ -21,25 +21,25 @@ function getTagsFromProjects(projects: Project[]): string[] {
 }
 
 interface ProjectsContentProps {
-  specialization?: string | null
+  skill?: string | null
 }
 
-async function ProjectsContent({ specialization }: ProjectsContentProps) {
+async function ProjectsContent({ skill }: ProjectsContentProps) {
   let projects: Project[] = []
   let tags: string[] = []
-  let specializationLabel: string | null = null
+  let skillLabel: string | null = null
 
   try {
     const {
       getAllTags,
       getSortedProjects,
-      getProjectsBySpecialization,
+      getProjectsBySkillProfile,
     } = await import('@/lib/projects')
 
-    if (specialization && getSpecializationById(specialization)) {
-      projects = getProjectsBySpecialization(specialization)
+    if (skill && getSkillProfileById(skill)) {
+      projects = getProjectsBySkillProfile(skill)
       tags = getTagsFromProjects(projects)
-      specializationLabel = getSpecializationById(specialization)!.label
+      skillLabel = getSkillProfileById(skill)!.label
     } else {
       projects = getSortedProjects()
       tags = getAllTags()
@@ -48,11 +48,11 @@ async function ProjectsContent({ specialization }: ProjectsContentProps) {
     // Contentlayer not built yet, use empty arrays
   }
 
-  const title = specializationLabel
-    ? `${specializationLabel} – Projects`
+  const title = skillLabel
+    ? `${skillLabel} – Projects`
     : 'Projects'
-  const description = specializationLabel
-    ? `Projects in ${specializationLabel}.`
+  const description = skillLabel
+    ? `Projects in ${skillLabel}.`
     : "A collection of projects I've worked on, from web applications to mobile apps and everything in between. Each project represents a unique challenge and learning opportunity."
 
   return (
@@ -72,28 +72,28 @@ async function ProjectsContent({ specialization }: ProjectsContentProps) {
 }
 
 interface ProjectsPageProps {
-  searchParams: Promise<{ specialization?: string }>
+  searchParams: Promise<{ skill?: string }>
 }
 
 export async function generateMetadata({ searchParams }: ProjectsPageProps) {
-  const { specialization } = await searchParams
-  const spec = specialization ? getSpecializationById(specialization) : null
-  if (spec) {
+  const { skill } = await searchParams
+  const profile = skill ? getSkillProfileById(skill) : null
+  if (profile) {
     return createMetadata({
-      title: `${spec.label} – Projects`,
-      description: `Projects in ${spec.label}.`,
-      path: `/projects?specialization=${spec.id}`,
+      title: `${profile.label} – Projects`,
+      description: `Projects in ${profile.label}.`,
+      path: `/projects?skill=${profile.id}`,
     })
   }
   return defaultMetadata
 }
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
-  const { specialization } = await searchParams
+  const { skill } = await searchParams
 
   return (
     <Suspense fallback={<div>Loading projects...</div>}>
-      <ProjectsContent specialization={specialization ?? null} />
+      <ProjectsContent skill={skill ?? null} />
     </Suspense>
   )
 }

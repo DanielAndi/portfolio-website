@@ -13,7 +13,7 @@ export interface Project {
   liveUrl?: string
   featured: boolean
   tags?: string[]
-  specializations?: string[]
+  skills?: string[]
   url: string
   body: {
     code: string

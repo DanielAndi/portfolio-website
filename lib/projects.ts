@@ -60,9 +60,9 @@ function sortProjects(projects: Project[]): Project[] {
   })
 }
 
-export function getProjectsBySpecialization(specId: string): Project[] {
+export function getProjectsBySkillProfile(skillId: string): Project[] {
   const filtered = allProjects.filter(
-    (project) => (project.specializations ?? []).includes(specId)
+    (project) => (project.skills ?? []).includes(skillId)
   )
   return sortProjects(filtered)
 }

@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { specializations, getSpecializationById } from '@/lib/specializations'
+import { skillProfiles, getSkillProfileById } from '@/lib/skills'
 
 const DEFAULT_RESUME_PATH = '/resume.pdf'
 
@@ -23,11 +23,11 @@ export function Sidebar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const firstSegment = pathname?.replace(/^\/|\/$/g, '').split('/')[0] ?? ''
-  const currentSpecialization = firstSegment ? getSpecializationById(firstSegment) : null
-  const resumePath = currentSpecialization ? currentSpecialization.resumePath : DEFAULT_RESUME_PATH
+  const currentSkillProfile = firstSegment ? getSkillProfileById(firstSegment) : null
+  const resumePath = currentSkillProfile ? currentSkillProfile.resumePath : DEFAULT_RESUME_PATH
   const isHome = pathname === '/' || pathname === ''
-  const subtitle = currentSpecialization
-    ? currentSpecialization.label
+  const subtitle = currentSkillProfile
+    ? currentSkillProfile.label
     : 'Full Stack Developer'
 
   const scrollToSection = (href: string) => {
@@ -95,10 +95,10 @@ export function Sidebar() {
                 </li>
               ))}
             </ul>
-            {specializations.length > 0 && (
+            {skillProfiles.length > 0 && (
               <>
                 <p className="px-3 pt-6 pb-1 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Specializations
+                  Skills
                 </p>
                 <ul className="space-y-2">
                   <li>
@@ -115,12 +115,12 @@ export function Sidebar() {
                       Main
                     </Link>
                   </li>
-                  {specializations.map((spec) => {
-                    const isActive = pathname === `/${spec.id}` || pathname?.startsWith(`/${spec.id}/`)
+                  {skillProfiles.map((profile) => {
+                    const isActive = pathname === `/${profile.id}` || pathname?.startsWith(`/${profile.id}/`)
                     return (
-                      <li key={spec.id}>
+                      <li key={profile.id}>
                         <Link
-                          href={`/${spec.id}`}
+                          href={`/${profile.id}`}
                           className={cn(
                             'flex px-3 py-2 rounded-lg transition-colors duration-200 focus-ring',
                             isActive
@@ -128,7 +128,7 @@ export function Sidebar() {
                               : 'text-muted-foreground hover:text-foreground hover:bg-muted'
                           )}
                         >
-                          {spec.label}
+                          {profile.label}
                         </Link>
                       </li>
                     )

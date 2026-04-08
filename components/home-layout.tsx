@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Mail, FileText } from 'lucide-react'
 import type { Project } from '@/lib/types'
-import { specializations } from '@/lib/specializations'
+import { skillProfiles } from '@/lib/skills'
 
 export interface HomeLayoutProps {
   /** Main hero title (e.g. "Hi, I'm Daniel") */
@@ -19,8 +19,8 @@ export interface HomeLayoutProps {
   resumePath?: string
   /** Projects to show in the featured section */
   projects: Project[]
-  /** When set, "View All Projects" links to /projects?specialization={id} */
-  specializationId?: string
+  /** When set, "View All Projects" links to /projects?skill={id} */
+  skillProfileId?: string
 }
 
 export function HomeLayout({
@@ -29,7 +29,7 @@ export function HomeLayout({
   subtitle,
   resumePath,
   projects,
-  specializationId,
+  skillProfileId,
 }: HomeLayoutProps) {
   const renderTitle = () => {
     if (titleAccent && title.includes(titleAccent)) {
@@ -122,7 +122,7 @@ export function HomeLayout({
             </div>
           </div>
           <div className="card p-6">
-            <h3 className="text-lg font-semibold text-foreground mb-4">Specialized</h3>
+            <h3 className="text-lg font-semibold text-foreground mb-4">Applied skills</h3>
             <div className="flex flex-wrap gap-2">
               {['OpenGL', 'IoT', 'FPGA', 'Unity', 'C#', 'Concurrency', 'Parallel Programming', 'Agile/Scrum'].map((skill) => (
                 <Badge key={skill} variant="secondary">{skill}</Badge>
@@ -132,20 +132,20 @@ export function HomeLayout({
         </div>
       </Section>
 
-      {/* Specializations Section */}
-      <Section id="specializations" title="Specializations">
+      {/* Skill profiles (per-role home views) */}
+      <Section id="skill-profiles" title="Skills">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {specializations.map((spec) => (
+          {skillProfiles.map((profile) => (
             <Link
-              key={spec.id}
-              href={`/${spec.id}`}
+              key={profile.id}
+              href={`/${profile.id}`}
               className="card p-5 hover:border-accent/60 transition-colors duration-200 focus-ring"
             >
               <h3 className="text-base font-semibold text-foreground mb-1">
-                {spec.label}
+                {profile.label}
               </h3>
               <p className="text-sm text-muted-foreground">
-                View specialization profile
+                View skill profile
               </p>
             </Link>
           ))}
@@ -163,8 +163,8 @@ export function HomeLayout({
           <Button asChild variant="outline" size="lg">
             <Link
               href={
-                specializationId
-                  ? `/projects?specialization=${specializationId}`
+                skillProfileId
+                  ? `/projects?skill=${skillProfileId}`
                   : '/projects'
               }
             >

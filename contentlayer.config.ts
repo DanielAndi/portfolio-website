@@ -78,10 +78,10 @@ export const Project = defineDocumentType(() => ({
       description: 'Project tags for filtering',
       required: false,
     },
-    specializations: {
+    skills: {
       type: 'list',
       of: { type: 'string' },
-      description: 'Specialization IDs (e.g. cloud, iot)',
+      description: 'Skill profile IDs (e.g. cloud, iot)',
       required: false,
     },
   },
