@@ -7,7 +7,7 @@ export function ProjectContent({ content }: ProjectContentProps) {
   const MDXContent = useMDXComponent(content)
   
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="project-mdx">
       <MDXContent />
     </div>
   )

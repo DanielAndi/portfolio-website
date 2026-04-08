@@ -56,6 +56,11 @@ export const Project = defineDocumentType(() => ({
       description: 'Live demo URL',
       required: false,
     },
+    extraLinks: {
+      type: 'json',
+      description: 'Additional labeled links (e.g. Steam Workshop, docs)',
+      required: false,
+    },
     metrics: {
       type: 'json',
       description: 'Project metrics',

@@ -16,6 +16,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
+  const heroIsSvg = project.heroImage.endsWith('.svg')
 
   return (
     <motion.article
@@ -29,14 +30,17 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       <div className="card overflow-hidden transition-all duration-300 hover:shadow-lg">
         {/* Image */}
         <Link href={project.url} className="block">
-          <div className="relative aspect-video overflow-hidden">
+          <div className="relative aspect-video overflow-hidden bg-muted/40">
             <Image
               src={project.heroImage}
               alt={project.title}
               fill
+              unoptimized={heroIsSvg}
               className={cn(
-                'object-cover transition-transform duration-300',
-                isHovered && 'scale-105'
+                heroIsSvg
+                  ? 'object-contain p-3 transition-transform duration-300'
+                  : 'object-cover transition-transform duration-300',
+                !heroIsSvg && isHovered && 'scale-105'
               )}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

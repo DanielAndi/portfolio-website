@@ -70,3 +70,74 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+@layer components {
+  .project-mdx {
+    @apply max-w-none text-base leading-relaxed;
+  }
+
+  .project-mdx > *:first-child {
+    @apply mt-0;
+  }
+
+  .project-mdx h1 {
+    @apply text-3xl font-bold text-foreground tracking-tight mt-10 mb-4;
+  }
+
+  .project-mdx h2 {
+    @apply text-2xl font-semibold text-foreground tracking-tight mt-10 mb-3;
+  }
+
+  .project-mdx h3 {
+    @apply text-xl font-semibold text-foreground mt-8 mb-2;
+  }
+
+  .project-mdx p {
+    @apply text-muted-foreground leading-relaxed;
+  }
+
+  .project-mdx ul,
+  .project-mdx ol {
+    @apply text-muted-foreground pl-6 my-4 space-y-2;
+  }
+
+  .project-mdx li {
+    @apply leading-relaxed;
+  }
+
+  .project-mdx li > p {
+    @apply my-1;
+  }
+
+  .project-mdx blockquote {
+    @apply border-l-4 border-border pl-4 my-6 italic text-muted-foreground;
+  }
+
+  .project-mdx a {
+    @apply text-accent underline-offset-2 hover:underline font-medium;
+  }
+
+  .project-mdx strong {
+    @apply text-foreground font-semibold;
+  }
+
+  .project-mdx code {
+    @apply font-mono text-sm bg-muted text-foreground px-1.5 py-0.5 rounded-md border border-border;
+  }
+
+  .project-mdx pre {
+    @apply my-6 rounded-xl border border-border bg-muted p-4 overflow-x-auto;
+  }
+
+  .project-mdx pre code {
+    @apply bg-transparent border-0 p-0 text-sm text-foreground;
+  }
+
+  .project-mdx hr {
+    @apply my-10 border-border;
+  }
+
+  .project-mdx img {
+    @apply rounded-lg border border-border my-6;
+  }
+}

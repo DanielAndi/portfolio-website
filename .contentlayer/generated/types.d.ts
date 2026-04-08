@@ -33,6 +33,8 @@ export type Project = {
   repoUrl?: string | undefined
   /** Live demo URL */
   liveUrl?: string | undefined
+  /** Additional labeled links (e.g. Steam Workshop, docs) */
+  extraLinks?: any | undefined
   /** Project metrics */
   metrics?: any | undefined
   /** Project screenshots */

@@ -1,5 +1,44 @@
 [
   {
+    "title": "Bakery Website",
+    "slug": "bakery-website",
+    "summary": "Marketing site for a bakery with menu highlights, hours, and contact—fast, accessible, and easy to update.",
+    "role": "Full Stack Developer",
+    "dates": "2024 – Present",
+    "tech": [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS"
+    ],
+    "status": "In Progress",
+    "heroImage": "/images/projects/project-placeholder.svg",
+    "featured": false,
+    "tags": [
+      "web",
+      "nextjs",
+      "marketing",
+      "tailwind"
+    ],
+    "skills": [
+      "frontend"
+    ],
+    "body": {
+      "raw": "\n# Project overview\n\nA **content-forward** bakery site emphasizing photography, seasonal menus, and clear calls to action (order, visit, contact). Built for performance (static generation where possible), accessibility, and simple deployment.\n\n## Highlights\n\n- **Responsive layout** tuned for mobile visitors discovering the shop on the go.\n- **Structured content** for menu sections and location details.\n- **SEO-friendly** metadata and semantic HTML.\n\n## Next steps\n\nReplace the placeholder hero with real photography, and set `liveUrl` and/or `repoUrl` in frontmatter when the site is published.\n",
+      "code": "var Component=(()=>{var p=Object.create;var o=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),x=(t,e)=>{for(var r in e)o(t,r,{get:e[r],enumerable:!0})},a=(t,e,r,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!f.call(t,i)&&i!==r&&o(t,i,{get:()=>e[i],enumerable:!(s=g(e,i))||s.enumerable});return t};var b=(t,e,r)=>(r=t!=null?p(m(t)):{},a(e||!t||!t.__esModule?o(r,\"default\",{value:t,enumerable:!0}):r,t)),w=t=>a(o({},\"__esModule\",{value:!0}),t);var c=y((_,l)=>{l.exports=_jsx_runtime});var v={};x(v,{default:()=>d,frontmatter:()=>j});var n=b(c()),j={slug:\"bakery-website\",title:\"Bakery Website\",summary:\"Marketing site for a bakery with menu highlights, hours, and contact\\u2014fast, accessible, and easy to update.\",role:\"Full Stack Developer\",dates:\"2024 \\u2013 Present\",tech:[\"Next.js\",\"TypeScript\",\"React\",\"Tailwind CSS\"],status:\"In Progress\",heroImage:\"/images/projects/project-placeholder.svg\",featured:!1,tags:[\"web\",\"nextjs\",\"marketing\",\"tailwind\"],skills:[\"frontend\"]};function h(t){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.strong,{children:\"content-forward\"}),\" bakery site emphasizing photography, seasonal menus, and clear calls to action (order, visit, contact). Built for performance (static generation where possible), accessibility, and simple deployment.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Responsive layout\"}),\" tuned for mobile visitors discovering the shop on the go.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Structured content\"}),\" for menu sections and location details.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"SEO-friendly\"}),\" metadata and semantic HTML.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Replace the placeholder hero with real photography, and set \",(0,n.jsx)(e.code,{children:\"liveUrl\"}),\" and/or \",(0,n.jsx)(e.code,{children:\"repoUrl\"}),\" in frontmatter when the site is published.\"]})]})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return w(v);})();\n;return Component;"
+    },
+    "_id": "projects/bakery-website.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/bakery-website.mdx",
+      "sourceFileName": "bakery-website.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/bakery-website"
+    },
+    "type": "Project",
+    "url": "/projects/bakery-website"
+  },
+  {
     "title": "Reaction-Time Flappy Bird Game (Embedded Systems)",
     "slug": "flappy-bird-embedded",
     "summary": "Real-time Flappy Bird-style game implemented on Terasic DE10-Standard SoC FPGA board, demonstrating embedded hardware/software co-design with C, Verilog, and AXI-Lite communication.",
@@ -91,6 +130,46 @@
     "url": "/projects/phytopi-controlled-environment"
   },
   {
+    "title": "RimWorld Gameplay Mod",
+    "slug": "rimworld-mod",
+    "summary": "Custom RimWorld mod extending colony simulation with new behaviors, defs, and Harmony patches—built with C# against the RimWorld modding API.",
+    "role": "Mod Developer",
+    "dates": "2024 – Present",
+    "tech": [
+      "C#",
+      "RimWorld API",
+      "Harmony",
+      "XML (Defs)",
+      "Visual Studio"
+    ],
+    "status": "In Progress",
+    "heroImage": "/images/projects/project-placeholder.svg",
+    "featured": false,
+    "tags": [
+      "rimworld",
+      "csharp",
+      "modding",
+      "game-development"
+    ],
+    "skills": [
+      "frontend"
+    ],
+    "body": {
+      "raw": "\n# Project overview\n\nThis mod extends **RimWorld** with custom gameplay elements using the game’s def system, C# assemblies, and **Harmony** for non-destructive patches. Work focuses on balancing new mechanics with vanilla systems and keeping saves compatible across updates.\n\n## Highlights\n\n- **Defs and data-driven content** for items, jobs, and behaviors where possible.\n- **Harmony patches** to hook into vanilla logic without forking core code.\n- **Testing** in dev mode with logging to catch edge cases early.\n\n## Next steps\n\nSwap `heroImage` for a screenshot or Workshop banner, and add `repoUrl`, `liveUrl` (e.g. Steam Workshop), or `extraLinks` in frontmatter when ready.\n",
+      "code": "var Component=(()=>{var m=Object.create;var s=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var p=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var w=(o,e)=>()=>(e||o((e={exports:{}}).exports,e),e.exports),v=(o,e)=>{for(var r in e)s(o,r,{get:e[r],enumerable:!0})},a=(o,e,r,i)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let t of p(e))!f.call(o,t)&&t!==r&&s(o,t,{get:()=>e[t],enumerable:!(i=g(e,t))||i.enumerable});return o};var x=(o,e,r)=>(r=o!=null?m(u(o)):{},a(e||!o||!o.__esModule?s(r,\"default\",{value:o,enumerable:!0}):r,o)),y=o=>a(s({},\"__esModule\",{value:!0}),o);var l=w((W,d)=>{d.exports=_jsx_runtime});var j={};v(j,{default:()=>h,frontmatter:()=>b});var n=x(l()),b={slug:\"rimworld-mod\",title:\"RimWorld Gameplay Mod\",summary:\"Custom RimWorld mod extending colony simulation with new behaviors, defs, and Harmony patches\\u2014built with C# against the RimWorld modding API.\",role:\"Mod Developer\",dates:\"2024 \\u2013 Present\",tech:[\"C#\",\"RimWorld API\",\"Harmony\",\"XML (Defs)\",\"Visual Studio\"],status:\"In Progress\",heroImage:\"/images/projects/project-placeholder.svg\",featured:!1,tags:[\"rimworld\",\"csharp\",\"modding\",\"game-development\"],skills:[\"frontend\"]};function c(o){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...o.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"This mod extends \",(0,n.jsx)(e.strong,{children:\"RimWorld\"}),\" with custom gameplay elements using the game\\u2019s def system, C# assemblies, and \",(0,n.jsx)(e.strong,{children:\"Harmony\"}),\" for non-destructive patches. Work focuses on balancing new mechanics with vanilla systems and keeping saves compatible across updates.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Defs and data-driven content\"}),\" for items, jobs, and behaviors where possible.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Harmony patches\"}),\" to hook into vanilla logic without forking core code.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Testing\"}),\" in dev mode with logging to catch edge cases early.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Swap \",(0,n.jsx)(e.code,{children:\"heroImage\"}),\" for a screenshot or Workshop banner, and add \",(0,n.jsx)(e.code,{children:\"repoUrl\"}),\", \",(0,n.jsx)(e.code,{children:\"liveUrl\"}),\" (e.g. Steam Workshop), or \",(0,n.jsx)(e.code,{children:\"extraLinks\"}),\" in frontmatter when ready.\"]})]})}function h(o={}){let{wrapper:e}=o.components||{};return e?(0,n.jsx)(e,{...o,children:(0,n.jsx)(c,{...o})}):c(o)}return y(j);})();\n;return Component;"
+    },
+    "_id": "projects/rimworld-mod.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/rimworld-mod.mdx",
+      "sourceFileName": "rimworld-mod.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/rimworld-mod"
+    },
+    "type": "Project",
+    "url": "/projects/rimworld-mod"
+  },
+  {
     "title": "School Hallway 3D Scene (OpenGL)",
     "slug": "school-hallway-opengl",
     "summary": "Interactive 3D school hallway scene built with OpenGL, C++, and GLUT for Computer Graphics coursework, featuring realistic lighting, textures, and 3D object modeling.",
@@ -131,6 +210,45 @@
     },
     "type": "Project",
     "url": "/projects/school-hallway-opengl"
+  },
+  {
+    "title": "Video Editing Pipeline",
+    "slug": "video-editing-pipeline",
+    "summary": "End-to-end workflow for ingest, proxy editing, color, and delivery—scripted folder structure, naming conventions, and export presets for consistent output.",
+    "role": "Pipeline Designer / Editor",
+    "dates": "2023 – Present",
+    "tech": [
+      "DaVinci Resolve",
+      "FFmpeg",
+      "Shell scripting",
+      "Adobe Premiere (optional)"
+    ],
+    "status": "In Progress",
+    "heroImage": "/images/projects/project-placeholder.svg",
+    "featured": false,
+    "tags": [
+      "video",
+      "post-production",
+      "ffmpeg",
+      "workflow"
+    ],
+    "skills": [
+      "ai-automation"
+    ],
+    "body": {
+      "raw": "\n# Project overview\n\nA **repeatable pipeline** for personal and project video work: standardized ingest, proxies for smooth editing, consistent timeline organization, and export ladders for web and archival masters.\n\n## Highlights\n\n- **Folder templates** and naming so assets stay traceable across revisions.\n- **FFmpeg** helpers for transcode, loudness, and batch exports where NLE automation is thin.\n- **Preset libraries** for recurring deliverables (e.g. portfolio clips, social cuts).\n\n## Next steps\n\nAdd `extraLinks` (e.g. sample playlist or documentation) when you want them surfaced in the project sidebar.\n",
+      "code": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var t in e)i(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!f.call(n,o)&&o!==t&&i(n,o,{get:()=>e[o],enumerable:!(s=g(e,o))||s.enumerable});return n};var w=(n,e,t)=>(t=n!=null?h(u(n)):{},l(e||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>l(i({},\"__esModule\",{value:!0}),n);var d=x((P,a)=>{a.exports=_jsx_runtime});var y={};v(y,{default:()=>p,frontmatter:()=>b});var r=w(d()),b={slug:\"video-editing-pipeline\",title:\"Video Editing Pipeline\",summary:\"End-to-end workflow for ingest, proxy editing, color, and delivery\\u2014scripted folder structure, naming conventions, and export presets for consistent output.\",role:\"Pipeline Designer / Editor\",dates:\"2023 \\u2013 Present\",tech:[\"DaVinci Resolve\",\"FFmpeg\",\"Shell scripting\",\"Adobe Premiere (optional)\"],status:\"In Progress\",heroImage:\"/images/projects/project-placeholder.svg\",featured:!1,tags:[\"video\",\"post-production\",\"ffmpeg\",\"workflow\"],skills:[\"ai-automation\"]};function c(n){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"A \",(0,r.jsx)(e.strong,{children:\"repeatable pipeline\"}),\" for personal and project video work: standardized ingest, proxies for smooth editing, consistent timeline organization, and export ladders for web and archival masters.\"]}),`\n`,(0,r.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Folder templates\"}),\" and naming so assets stay traceable across revisions.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"FFmpeg\"}),\" helpers for transcode, loudness, and batch exports where NLE automation is thin.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Preset libraries\"}),\" for recurring deliverables (e.g. portfolio clips, social cuts).\"]}),`\n`]}),`\n`,(0,r.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"Add \",(0,r.jsx)(e.code,{children:\"extraLinks\"}),\" (e.g. sample playlist or documentation) when you want them surfaced in the project sidebar.\"]})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(c,{...n})}):c(n)}return j(y);})();\n;return Component;"
+    },
+    "_id": "projects/video-editing-pipeline.mdx",
+    "_raw": {
+      "sourceFilePath": "projects/video-editing-pipeline.mdx",
+      "sourceFileName": "video-editing-pipeline.mdx",
+      "sourceFileDir": "projects",
+      "contentType": "mdx",
+      "flattenedPath": "projects/video-editing-pipeline"
+    },
+    "type": "Project",
+    "url": "/projects/video-editing-pipeline"
   },
   {
     "title": "VR Cashier Simulator for Neurodivergent Learners",

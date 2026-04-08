@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { BuildSheet } from '@/components/build-sheet'
 import { ProjectContent } from '@/components/project-content'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { createProjectMetadata } from '@/lib/seo'
 import { getProjectBySlug, getNextProject, getPreviousProject } from '@/lib/projects'
@@ -42,11 +43,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const nextProject = getNextProject(slug)
   const previousProject = getPreviousProject(slug)
+  const heroIsSvg = project.heroImage.endsWith('.svg')
 
   return (
     <article className="py-16 lg:py-24">
       {/* Header */}
-      <div className="mb-12">
+      <div className="mb-12 lg:mb-16">
         <Link
           href="/projects"
           className="inline-flex items-center text-muted-foreground hover:text-foreground transition-colors duration-200 mb-6"
@@ -54,30 +56,56 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <ArrowLeft size={16} className="mr-2" />
           Back to Projects
         </Link>
-        
-        <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+
+        <h1 className="text-3xl lg:text-4xl font-bold text-foreground tracking-tight mb-4">
           {project.title}
         </h1>
-        
-        <p className="text-lg text-muted-foreground mb-8 max-w-3xl">
+
+        <div className="flex flex-wrap items-center gap-3 gap-y-2 mb-5">
+          <Badge
+            variant={
+              project.status.toLowerCase() === 'completed'
+                ? 'default'
+                : project.status.toLowerCase() === 'in progress'
+                  ? 'secondary'
+                  : 'outline'
+            }
+          >
+            {project.status}
+          </Badge>
+          <span className="text-sm text-muted-foreground tabular-nums">
+            {project.dates}
+          </span>
+        </div>
+
+        <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mb-10">
           {project.summary}
         </p>
 
         {/* Hero Image */}
-        <div className="relative aspect-video rounded-2xl overflow-hidden mb-8">
-          <Image
-            src={project.heroImage}
-            alt={project.title}
-            fill
-            className="object-cover"
-          />
+        <div className="mt-10 pt-10 border-t border-border">
+          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border bg-muted/40">
+            <Image
+              src={project.heroImage}
+              alt={project.title}
+              fill
+              unoptimized={heroIsSvg}
+              className={
+                heroIsSvg
+                  ? 'object-contain p-4 sm:p-6'
+                  : 'object-cover'
+              }
+            />
+          </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="grid lg:grid-cols-[1fr_320px] gap-12">
+      <div className="grid lg:grid-cols-[1fr_320px] gap-12 lg:gap-14">
         {/* Article Content */}
-        <ProjectContent content={project.body.code} />
+        <div className="rounded-2xl border border-border bg-muted/25 p-6 sm:p-8 lg:p-10 min-w-0">
+          <ProjectContent content={project.body.code} />
+        </div>
 
         {/* Build Sheet Sidebar */}
         <div className="lg:sticky lg:top-24 lg:h-fit">

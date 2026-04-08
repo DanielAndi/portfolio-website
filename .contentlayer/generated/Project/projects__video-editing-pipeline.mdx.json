@@ -1,0 +1,39 @@
+{
+  "title": "Video Editing Pipeline",
+  "slug": "video-editing-pipeline",
+  "summary": "End-to-end workflow for ingest, proxy editing, color, and delivery—scripted folder structure, naming conventions, and export presets for consistent output.",
+  "role": "Pipeline Designer / Editor",
+  "dates": "2023 – Present",
+  "tech": [
+    "DaVinci Resolve",
+    "FFmpeg",
+    "Shell scripting",
+    "Adobe Premiere (optional)"
+  ],
+  "status": "In Progress",
+  "heroImage": "/images/projects/project-placeholder.svg",
+  "featured": false,
+  "tags": [
+    "video",
+    "post-production",
+    "ffmpeg",
+    "workflow"
+  ],
+  "skills": [
+    "ai-automation"
+  ],
+  "body": {
+    "raw": "\n# Project overview\n\nA **repeatable pipeline** for personal and project video work: standardized ingest, proxies for smooth editing, consistent timeline organization, and export ladders for web and archival masters.\n\n## Highlights\n\n- **Folder templates** and naming so assets stay traceable across revisions.\n- **FFmpeg** helpers for transcode, loudness, and batch exports where NLE automation is thin.\n- **Preset libraries** for recurring deliverables (e.g. portfolio clips, social cuts).\n\n## Next steps\n\nAdd `extraLinks` (e.g. sample playlist or documentation) when you want them surfaced in the project sidebar.\n",
+    "code": "var Component=(()=>{var h=Object.create;var i=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var m=Object.getOwnPropertyNames;var u=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var x=(n,e)=>()=>(e||n((e={exports:{}}).exports,e),e.exports),v=(n,e)=>{for(var t in e)i(n,t,{get:e[t],enumerable:!0})},l=(n,e,t,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of m(e))!f.call(n,o)&&o!==t&&i(n,o,{get:()=>e[o],enumerable:!(s=g(e,o))||s.enumerable});return n};var w=(n,e,t)=>(t=n!=null?h(u(n)):{},l(e||!n||!n.__esModule?i(t,\"default\",{value:n,enumerable:!0}):t,n)),j=n=>l(i({},\"__esModule\",{value:!0}),n);var d=x((P,a)=>{a.exports=_jsx_runtime});var y={};v(y,{default:()=>p,frontmatter:()=>b});var r=w(d()),b={slug:\"video-editing-pipeline\",title:\"Video Editing Pipeline\",summary:\"End-to-end workflow for ingest, proxy editing, color, and delivery\\u2014scripted folder structure, naming conventions, and export presets for consistent output.\",role:\"Pipeline Designer / Editor\",dates:\"2023 \\u2013 Present\",tech:[\"DaVinci Resolve\",\"FFmpeg\",\"Shell scripting\",\"Adobe Premiere (optional)\"],status:\"In Progress\",heroImage:\"/images/projects/project-placeholder.svg\",featured:!1,tags:[\"video\",\"post-production\",\"ffmpeg\",\"workflow\"],skills:[\"ai-automation\"]};function c(n){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...n.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"A \",(0,r.jsx)(e.strong,{children:\"repeatable pipeline\"}),\" for personal and project video work: standardized ingest, proxies for smooth editing, consistent timeline organization, and export ladders for web and archival masters.\"]}),`\n`,(0,r.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Folder templates\"}),\" and naming so assets stay traceable across revisions.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"FFmpeg\"}),\" helpers for transcode, loudness, and batch exports where NLE automation is thin.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Preset libraries\"}),\" for recurring deliverables (e.g. portfolio clips, social cuts).\"]}),`\n`]}),`\n`,(0,r.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"Add \",(0,r.jsx)(e.code,{children:\"extraLinks\"}),\" (e.g. sample playlist or documentation) when you want them surfaced in the project sidebar.\"]})]})}function p(n={}){let{wrapper:e}=n.components||{};return e?(0,r.jsx)(e,{...n,children:(0,r.jsx)(c,{...n})}):c(n)}return j(y);})();\n;return Component;"
+  },
+  "_id": "projects/video-editing-pipeline.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/video-editing-pipeline.mdx",
+    "sourceFileName": "video-editing-pipeline.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/video-editing-pipeline"
+  },
+  "type": "Project",
+  "url": "/projects/video-editing-pipeline"
+}

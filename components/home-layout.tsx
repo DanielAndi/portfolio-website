@@ -175,18 +175,24 @@ export function HomeLayout({
       </Section>
 
       {/* Contact Section */}
-      <Section id="contact" title="Let's Work Together" className="text-center">
-        <div className="max-w-2xl mx-auto text-center">
-          <p className="text-lg text-muted-foreground mb-8">
-            I&apos;m always interested in new opportunities and exciting projects.
-            Let&apos;s discuss how we can work together to bring your ideas to life.
-          </p>
-          <Button asChild size="lg">
-            <Link href="/contact#contact-form">
-              <Mail size={20} className="mr-2" />
-              Send me an email
-            </Link>
-          </Button>
+      <Section
+        id="contact"
+        title="Let's Work Together"
+        className="text-center"
+      >
+        <div className="min-h-[min(75dvh,52rem)] flex flex-col justify-center items-center px-2">
+          <div className="max-w-2xl mx-auto text-center w-full">
+            <p className="text-lg sm:text-xl text-muted-foreground mb-10 sm:mb-12 leading-relaxed">
+              I&apos;m always interested in new opportunities and exciting projects.
+              Let&apos;s discuss how we can work together to bring your ideas to life.
+            </p>
+            <Button asChild size="lg" className="text-base px-8 py-6 h-auto">
+              <Link href="/contact#contact-form">
+                <Mail size={20} className="mr-2" />
+                Send me an email
+              </Link>
+            </Button>
+          </div>
         </div>
       </Section>
     </div>

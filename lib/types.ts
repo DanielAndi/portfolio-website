@@ -11,6 +11,7 @@ export interface Project {
   heroImage: string
   repoUrl?: string
   liveUrl?: string
+  extraLinks?: { label: string; url: string }[]
   featured: boolean
   tags?: string[]
   skills?: string[]

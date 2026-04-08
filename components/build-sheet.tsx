@@ -2,7 +2,7 @@
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { ExternalLink, Github, Calendar, User, Code } from 'lucide-react'
+import { ExternalLink, Github, Calendar, User, Code, Link2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { Project } from '@/lib/types'
 
@@ -11,7 +11,26 @@ interface BuildSheetProps {
   className?: string
 }
 
+function normalizeExtraLinks(
+  raw: Project['extraLinks']
+): { label: string; url: string }[] {
+  if (!raw || !Array.isArray(raw)) return []
+  return raw.filter(
+    (item): item is { label: string; url: string } =>
+      typeof item === 'object' &&
+      item !== null &&
+      typeof (item as { label?: string }).label === 'string' &&
+      typeof (item as { url?: string }).url === 'string'
+  )
+}
+
 export function BuildSheet({ project, className }: BuildSheetProps) {
+  const extraLinks = normalizeExtraLinks(project.extraLinks)
+  const hasLinkUrls =
+    Boolean(project.repoUrl) ||
+    Boolean(project.liveUrl) ||
+    extraLinks.length > 0
+
   return (
     <div className={cn('card p-6 space-y-6', className)}>
       <div className="flex items-center gap-2 mb-4">
@@ -69,6 +88,68 @@ export function BuildSheet({ project, className }: BuildSheetProps) {
         </div>
 
       </dl>
+
+      {hasLinkUrls && (
+        <div className="pt-4 border-t border-border space-y-3">
+          <div className="flex items-center gap-2">
+            <Link2 size={16} className="text-muted-foreground" />
+            <h4 className="text-sm font-semibold text-foreground">Links</h4>
+          </div>
+          <dl className="space-y-3">
+            {project.repoUrl && (
+              <div>
+                <dt className="text-xs font-medium text-muted-foreground mb-1">
+                  Repository
+                </dt>
+                <dd>
+                  <a
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-accent underline-offset-2 hover:underline break-all"
+                  >
+                    {project.repoUrl}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {project.liveUrl && (
+              <div>
+                <dt className="text-xs font-medium text-muted-foreground mb-1">
+                  Live site
+                </dt>
+                <dd>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-accent underline-offset-2 hover:underline break-all"
+                  >
+                    {project.liveUrl}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {extraLinks.map((link) => (
+              <div key={`${link.label}-${link.url}`}>
+                <dt className="text-xs font-medium text-muted-foreground mb-1">
+                  {link.label}
+                </dt>
+                <dd>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-accent underline-offset-2 hover:underline break-all"
+                  >
+                    {link.url}
+                  </a>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
 
       <div className="pt-4 border-t border-border space-y-3">
         {project.repoUrl && (
