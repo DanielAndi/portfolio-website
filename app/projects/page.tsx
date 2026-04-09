@@ -1,4 +1,5 @@
 import { Suspense } from 'react'
+import { ProjectSkillCategories } from '@/components/project-skill-categories'
 import { ProjectsPageClient } from '@/components/projects-page-client'
 import { createMetadata } from '@/lib/seo'
 import { getSkillProfileById } from '@/lib/skills'
@@ -55,6 +56,9 @@ async function ProjectsContent({ skill }: ProjectsContentProps) {
     ? `Projects in ${skillLabel}.`
     : "A collection of projects I've worked on, from web applications to mobile apps and everything in between. Each project represents a unique challenge and learning opportunity."
 
+  const activeSkillId =
+    skill && getSkillProfileById(skill) ? skill : null
+
   return (
     <div className="py-16 lg:py-24">
       <div className="mb-12">
@@ -65,6 +69,11 @@ async function ProjectsContent({ skill }: ProjectsContentProps) {
           {description}
         </p>
       </div>
+
+      <ProjectSkillCategories
+        activeSkillId={activeSkillId}
+        className="mb-10"
+      />
 
       <ProjectsPageClient projects={projects} tags={tags} />
     </div>

@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 import { withContentlayer } from 'next-contentlayer2';
-import path from 'path';
+import { skillProfiles } from './lib/skills';
 
 const nextConfig: NextConfig = {
   outputFileTracingRoot: __dirname,
@@ -10,12 +10,12 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react'],
   },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname),
-    };
-    return config;
+  async redirects() {
+    return skillProfiles.map((p) => ({
+      source: `/${p.id}`,
+      destination: `/projects?skill=${p.id}`,
+      permanent: true,
+    }));
   },
 };
 

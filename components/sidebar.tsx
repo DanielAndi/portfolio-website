@@ -6,7 +6,6 @@ import { useState } from 'react'
 import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { skillProfiles, getSkillProfileById } from '@/lib/skills'
 
 const DEFAULT_RESUME_PATH = '/resume.pdf'
 
@@ -22,13 +21,8 @@ export function Sidebar() {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
 
-  const firstSegment = pathname?.replace(/^\/|\/$/g, '').split('/')[0] ?? ''
-  const currentSkillProfile = firstSegment ? getSkillProfileById(firstSegment) : null
-  const resumePath = currentSkillProfile ? currentSkillProfile.resumePath : DEFAULT_RESUME_PATH
-  const isHome = pathname === '/' || pathname === ''
-  const subtitle = currentSkillProfile
-    ? currentSkillProfile.label
-    : 'Full Stack Developer'
+  const resumePath = DEFAULT_RESUME_PATH
+  const subtitle = 'Software Engineer'
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
@@ -95,47 +89,6 @@ export function Sidebar() {
                 </li>
               ))}
             </ul>
-            {skillProfiles.length > 0 && (
-              <>
-                <p className="px-3 pt-6 pb-1 text-xs font-medium text-muted-foreground uppercase tracking-wider">
-                  Skills
-                </p>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/"
-                      className={cn(
-                        'flex items-center gap-2 px-3 py-2 rounded-lg transition-colors duration-200 focus-ring',
-                        isHome
-                          ? 'text-foreground bg-muted font-medium'
-                          : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                      )}
-                    >
-                      <Home size={18} />
-                      Main
-                    </Link>
-                  </li>
-                  {skillProfiles.map((profile) => {
-                    const isActive = pathname === `/${profile.id}` || pathname?.startsWith(`/${profile.id}/`)
-                    return (
-                      <li key={profile.id}>
-                        <Link
-                          href={`/${profile.id}`}
-                          className={cn(
-                            'flex px-3 py-2 rounded-lg transition-colors duration-200 focus-ring',
-                            isActive
-                              ? 'text-foreground bg-muted font-medium'
-                              : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                          )}
-                        >
-                          {profile.label}
-                        </Link>
-                      </li>
-                    )
-                  })}
-                </ul>
-              </>
-            )}
           </nav>
 
           <div className="space-y-4">
