@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Mail, FileText } from 'lucide-react'
 import type { Project } from '@/lib/types'
-import { skillProfiles } from '@/lib/skills'
 
 export interface HomeLayoutProps {
   /** Main hero title (e.g. "Hi, I'm Daniel") */
@@ -19,8 +18,6 @@ export interface HomeLayoutProps {
   resumePath?: string
   /** Projects to show in the featured section */
   projects: Project[]
-  /** When set, "View All Projects" links to /projects?skill={id} */
-  skillProfileId?: string
 }
 
 export function HomeLayout({
@@ -29,7 +26,6 @@ export function HomeLayout({
   subtitle,
   resumePath,
   projects,
-  skillProfileId,
 }: HomeLayoutProps) {
   const renderTitle = () => {
     if (titleAccent && title.includes(titleAccent)) {
@@ -70,26 +66,34 @@ export function HomeLayout({
       </Section>
 
       {/* About Section */}
-      <Section id="about" title="About Me">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <Section id="about">
+        <div className="grid gap-6 lg:gap-8 items-start lg:grid-cols-[minmax(0,24rem)_1fr]">
+          <figure className="mx-auto w-full max-w-sm lg:mx-0">
+            <div className="rounded-2xl overflow-hidden">
+              <Image
+                src="/images/profile.jpg"
+                alt="Daniel Andre Grijalva"
+                width={464}
+                height={600}
+                className="w-full h-auto"
+                sizes="(min-width: 1024px) 384px, 100vw"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-sm italic text-muted-foreground">
+              Daniel Andre Grijalva
+            </figcaption>
+          </figure>
           <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-foreground">About me</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
               B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate software engineer with a strong foundation in computer science and a passion for building innovative solutions.
+              I&apos;m a software engineer with a strong foundation in computer science who enjoys turning ideas into reliable, useful systems.
             </p>
-          </div>
-          <div className="lg:order-first">
-            <div className="aspect-square max-w-sm mx-auto rounded-2xl overflow-hidden">
-              <Image
-                src="/images/profile.jpg"
-                alt="Daniel - Software Engineer"
-                width={400}
-                height={400}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Technology has been part of my life for as long as I can remember. Video games were what first made me wonder how things really worked under the hood. At the time, it felt like magic. Today, with enough time and focus, I get to shape that same sense of possibility in a concrete way: building software that helps people and leaves the world a little better than I found it.
+            </p>
           </div>
         </div>
       </Section>
@@ -132,26 +136,6 @@ export function HomeLayout({
         </div>
       </Section>
 
-      {/* Skill profiles (per-role home views) */}
-      <Section id="skill-profiles" title="Skills">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {skillProfiles.map((profile) => (
-            <Link
-              key={profile.id}
-              href={`/${profile.id}`}
-              className="card p-5 hover:border-accent/60 transition-colors duration-200 focus-ring"
-            >
-              <h3 className="text-base font-semibold text-foreground mb-1">
-                {profile.label}
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                View skill profile
-              </p>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
       {/* Featured Projects Section */}
       <Section id="projects" title="Featured Projects">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -161,13 +145,7 @@ export function HomeLayout({
         </div>
         <div className="text-center mt-12">
           <Button asChild variant="outline" size="lg">
-            <Link
-              href={
-                skillProfileId
-                  ? `/projects?skill=${skillProfileId}`
-                  : '/projects'
-              }
-            >
+            <Link href="/projects">
               View All Projects
             </Link>
           </Button>
