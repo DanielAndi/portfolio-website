@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inconsolata } from "next/font/google";
 import { Sidebar } from "@/components/sidebar";
 import { ProgressBar } from "@/components/progress-bar";
 import { createMetadata } from "@/lib/seo";
 import "./globals.css";
 
-const inter = Inter({
+const inconsolata = Inconsolata({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-inconsolata",
 });
 
 export const metadata: Metadata = createMetadata();
@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={inconsolata.variable}>
       <body className="antialiased">
         <a href="#main" className="skip-to-content">
           Skip to content
