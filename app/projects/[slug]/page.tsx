@@ -1,11 +1,12 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { BuildSheet } from '@/components/build-sheet'
 import { ProjectContent } from '@/components/project-content'
+import { ProjectHeroCarousel } from '@/components/project-hero-carousel'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { getProjectHeroSlideEntries } from '@/lib/project-media'
 import { createProjectMetadata } from '@/lib/seo'
 import { getProjectBySlug, getNextProject, getPreviousProject } from '@/lib/projects'
 
@@ -43,7 +44,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const nextProject = getNextProject(slug)
   const previousProject = getPreviousProject(slug)
-  const heroIsSvg = project.heroImage.endsWith('.svg')
+  const heroSlides = getProjectHeroSlideEntries(project)
 
   return (
     <article className="py-16 lg:py-24">
@@ -82,21 +83,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.summary}
         </p>
 
-        {/* Hero Image */}
+        {/* Hero media (optional multi-slide for GIFs / extra shots) */}
         <div className="mt-10 pt-10 border-t border-border">
-          <div className="relative aspect-video rounded-2xl overflow-hidden border border-border bg-muted/40">
-            <Image
-              src={project.heroImage}
-              alt={project.title}
-              fill
-              unoptimized={heroIsSvg}
-              className={
-                heroIsSvg
-                  ? 'object-contain p-4 sm:p-6'
-                  : 'object-cover'
-              }
-            />
-          </div>
+          <ProjectHeroCarousel title={project.title} slides={heroSlides} />
         </div>
       </div>
 
@@ -108,7 +97,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         {/* Build Sheet Sidebar */}
-        <div className="lg:sticky lg:top-24 lg:h-fit">
+        <div className="lg:sticky lg:top-8 lg:max-h-[calc(100vh-2rem)] lg:overflow-auto lg:pr-1">
           <BuildSheet project={project} />
         </div>
       </div>

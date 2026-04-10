@@ -12,7 +12,7 @@ export interface HomeLayoutProps {
   title: string
   /** Optional part of title to highlight with accent color (e.g. "Daniel") */
   titleAccent?: string
-  /** Hero subtitle (e.g. "Cloud Engineer" or a quote) */
+  /** Shown in the About section above the resume button (e.g. a quote or tagline) */
   subtitle?: string
   /** Path to resume PDF for "View Resume" link. Omitted if not provided. */
   resumePath?: string
@@ -42,61 +42,67 @@ export function HomeLayout({
   }
 
   return (
-    <div className="py-16 lg:py-24 space-y-24">
-      {/* Hero Section */}
-      <Section id="hero" className="text-center">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
-            {renderTitle()}
-          </h1>
-          {subtitle && (
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              {subtitle}
-            </p>
-          )}
-          {resumePath && (
-            <Button asChild variant="outline" size="lg">
-              <Link href={resumePath}>
-                <FileText size={20} className="mr-2" />
-                View Resume
-              </Link>
-            </Button>
-          )}
-        </div>
-      </Section>
-
-      {/* About Section */}
-      <Section id="about">
-        <div className="grid gap-6 lg:gap-8 items-start lg:grid-cols-[minmax(0,24rem)_1fr]">
-          <figure className="mx-auto w-full max-w-sm lg:mx-0">
-            <div className="rounded-2xl overflow-hidden">
-              <Image
-                src="/images/profile.jpg"
-                alt="Daniel Andre Grijalva"
-                width={464}
-                height={600}
-                className="w-full h-auto"
-                sizes="(min-width: 1024px) 384px, 100vw"
-              />
-            </div>
-            <figcaption className="mt-3 text-center text-sm italic text-muted-foreground">
-              Daniel Andre Grijalva
-            </figcaption>
-          </figure>
-          <div className="space-y-6">
-            <h3 className="text-xl font-semibold text-foreground">About me</h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a software engineer with a strong foundation in computer science who enjoys turning ideas into reliable, useful systems.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Technology has been part of my life for as long as I can remember. Video games were what first made me wonder how things really worked under the hood. At the time, it felt like magic. Today, with enough time and focus, I get to shape that same sense of possibility in a concrete way: building software that helps people and leaves the world a little better than I found it.
-            </p>
+    <div className="pt-8 sm:pt-10 lg:pt-12 pb-16 lg:pb-24 space-y-24">
+      <div className="space-y-12 lg:space-y-16">
+        {/* Hero Section */}
+        <Section id="hero" className="text-center">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl lg:text-6xl font-bold text-foreground mb-6">
+              {renderTitle()}
+            </h1>
           </div>
-        </div>
-      </Section>
+        </Section>
+
+        {/* About Section */}
+        <Section id="about">
+          <div className="grid gap-6 lg:gap-8 items-start lg:grid-cols-[minmax(0,24rem)_1fr] max-w-6xl mx-auto">
+            <figure className="mx-auto w-full max-w-sm lg:mx-0 lg:justify-self-start">
+              <div className="rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/profile.jpg"
+                  alt="Daniel Andre Grijalva"
+                  width={464}
+                  height={600}
+                  className="w-full h-auto"
+                  sizes="(min-width: 1024px) 384px, 100vw"
+                />
+              </div>
+              <figcaption className="mt-3 text-center lg:text-left text-sm italic text-muted-foreground">
+                Daniel Andre Grijalva
+              </figcaption>
+            </figure>
+            <div className="min-w-0 max-w-3xl lg:max-w-none text-left">
+              <div className="space-y-6">
+                <h3 className="text-xl font-semibold text-foreground">About me</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  I&apos;m a software engineer with a strong foundation in computer science who enjoys turning ideas into reliable, useful systems.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Technology has been part of my life for as long as I can remember. Video games were what first made me wonder how things really worked under the hood. At the time, it felt like magic. Today, with enough time and focus, I get to shape that same sense of possibility in a concrete way: building software that helps people and leaves the world a little better than I found it.
+                </p>
+              </div>
+              {subtitle && (
+                <p className="text-xl text-muted-foreground mt-10 pt-8 mb-6 leading-relaxed">
+                  {subtitle}
+                </p>
+              )}
+              {resumePath && (
+                <div className={subtitle ? '' : 'mt-10 pt-8'}>
+                  <Button asChild variant="outline" size="lg">
+                    <Link href={resumePath}>
+                      <FileText size={20} className="mr-2" />
+                      View Resume
+                    </Link>
+                  </Button>
+                </div>
+              )}
+            </div>
+          </div>
+        </Section>
+      </div>
 
       {/* Skills Section */}
       <Section id="skills" title="Skills & Technologies">

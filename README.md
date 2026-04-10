@@ -106,7 +106,10 @@ portfolio-website/
    dates: January 2024 - March 2024
    tech: [React, TypeScript, Tailwind]
    status: Completed
-   heroImage: /images/projects/my-project-hero.jpg
+   heroImage: /images/projects/my-new-project/hero.jpg
+   # Optional: extra slides (GIFs, UI steps) cycled with the arrow on the project page
+   heroGallery:
+     - /images/projects/my-new-project/gameplay.gif
    repoUrl: https://github.com/username/repo
    liveUrl: https://myproject.com
    featured: true

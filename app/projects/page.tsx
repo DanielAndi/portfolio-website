@@ -1,5 +1,4 @@
 import { Suspense } from 'react'
-import { ProjectSkillCategories } from '@/components/project-skill-categories'
 import { ProjectsPageClient } from '@/components/projects-page-client'
 import { createMetadata } from '@/lib/seo'
 import { getSkillProfileById } from '@/lib/skills'
@@ -60,22 +59,14 @@ async function ProjectsContent({ skill }: ProjectsContentProps) {
     skill && getSkillProfileById(skill) ? skill : null
 
   return (
-    <div className="py-16 lg:py-24">
-      <div className="mb-12">
-        <h1 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-          {title}
-        </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl">
-          {description}
-        </p>
-      </div>
-
-      <ProjectSkillCategories
+    <div className="py-6 lg:py-8">
+      <ProjectsPageClient
+        pageTitle={title}
+        pageDescription={description}
+        projects={projects}
+        tags={tags}
         activeSkillId={activeSkillId}
-        className="mb-10"
       />
-
-      <ProjectsPageClient projects={projects} tags={tags} />
     </div>
   )
 }

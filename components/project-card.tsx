@@ -1,12 +1,20 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
+import { useCallback, useState, type MouseEvent } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { ExternalLink, Github } from 'lucide-react'
+import {
+  AnimatedSlideImage,
+  type SlideDirection,
+} from '@/components/animated-slide-image'
+import { ChevronLeft, ChevronRight, ExternalLink, Github } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
+import {
+  getProjectHeroSlideEntries,
+  mediaIsSvg,
+  mediaNeedsUnoptimized,
+} from '@/lib/project-media'
 import type { Project } from '@/lib/types'
 
 interface ProjectCardProps {
@@ -16,7 +24,25 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const [isHovered, setIsHovered] = useState(false)
-  const heroIsSvg = project.heroImage.endsWith('.svg')
+  const slides = getProjectHeroSlideEntries(project)
+  const [slideIndex, setSlideIndex] = useState(0)
+  const [slideDirection, setSlideDirection] = useState<SlideDirection>(1)
+  const current = slides[slideIndex] ?? slides[0]
+  const currentSrc = current?.src ?? project.heroImage
+  const currentCaption = current?.caption ?? ''
+  const slideIsSvg = mediaIsSvg(currentSrc)
+  const slideUnoptimized = mediaNeedsUnoptimized(currentSrc)
+  const hasMultipleSlides = slides.length > 1
+
+  const goSlide = useCallback(
+    (delta: number) => (e: MouseEvent) => {
+      e.preventDefault()
+      e.stopPropagation()
+      setSlideDirection(delta > 0 ? 1 : -1)
+      setSlideIndex((i) => (i + delta + slides.length) % slides.length)
+    },
+    [slides.length]
+  )
 
   return (
     <motion.article
@@ -25,27 +51,84 @@ export function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="group"
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false)
+        if (hasMultipleSlides) {
+          setSlideDirection(1)
+          setSlideIndex(0)
+        }
+      }}
     >
       <div className="card overflow-hidden transition-all duration-300 hover:shadow-lg">
-        {/* Image */}
-        <Link href={project.url} className="block">
-          <div className="relative aspect-video overflow-hidden bg-muted/40">
-            <Image
-              src={project.heroImage}
-              alt={project.title}
-              fill
-              unoptimized={heroIsSvg}
-              className={cn(
-                heroIsSvg
+        {/* Image — link fills frame; arrows sit above for gallery projects */}
+        <div className="relative aspect-video overflow-hidden bg-muted/40 group/card-img">
+          <Link
+            href={project.url}
+            className="absolute inset-0 z-0 block"
+            aria-label={`View project: ${project.title}`}
+          >
+            <AnimatedSlideImage
+              src={currentSrc}
+              alt={`${project.title} — preview ${slideIndex + 1} of ${slides.length}`}
+              direction={slideDirection}
+              unoptimized={slideUnoptimized}
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              imageClassName={cn(
+                slideIsSvg
                   ? 'object-contain p-3 transition-transform duration-300'
                   : 'object-cover transition-transform duration-300',
-                !heroIsSvg && isHovered && 'scale-105'
+                !slideIsSvg && isHovered && 'scale-105'
               )}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-        </Link>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </Link>
+
+          {currentCaption.trim().length > 0 && (
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10">
+              <div
+                className={cn(
+                  'px-3 py-2 text-xs leading-snug text-white/95',
+                  'bg-gradient-to-t from-black/70 via-black/25 to-transparent'
+                )}
+              >
+                <p className="line-clamp-2">{currentCaption}</p>
+              </div>
+            </div>
+          )}
+
+          {hasMultipleSlides && (
+            <>
+              <button
+                type="button"
+                onClick={goSlide(-1)}
+                aria-label="Previous preview image"
+                className={cn(
+                  'absolute left-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full',
+                  'border border-white/25 bg-black/45 text-white shadow-md backdrop-blur-sm',
+                  'opacity-90 transition-all duration-200 sm:opacity-0 sm:group-hover:opacity-100',
+                  'scale-95 sm:scale-90 sm:group-hover/card-img:scale-125 sm:group-hover/card-img:shadow-lg',
+                  'hover:bg-black/60 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+                )}
+              >
+                <ChevronLeft className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+              </button>
+              <button
+                type="button"
+                onClick={goSlide(1)}
+                aria-label="Next preview image"
+                className={cn(
+                  'absolute right-2 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full',
+                  'border border-white/25 bg-black/45 text-white shadow-md backdrop-blur-sm',
+                  'opacity-90 transition-all duration-200 sm:opacity-0 sm:group-hover:opacity-100',
+                  'scale-95 sm:scale-90 sm:group-hover/card-img:scale-125 sm:group-hover/card-img:shadow-lg',
+                  'hover:bg-black/60 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2'
+                )}
+              >
+                <ChevronRight className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+              </button>
+            </>
+          )}
+        </div>
 
         {/* Content */}
         <div className="p-6">

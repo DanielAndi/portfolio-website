@@ -46,6 +46,19 @@ export const Project = defineDocumentType(() => ({
       description: 'Hero image path',
       required: true,
     },
+    heroGallery: {
+      type: 'list',
+      of: { type: 'string' },
+      description:
+        'Additional hero images or GIFs (gameplay, UI flow); shown in order after heroImage with a next control on the project page',
+      required: false,
+    },
+    heroSlides: {
+      type: 'json',
+      description:
+        'Ordered hero slides: [{ src: string; caption: string }]. When present, this overrides heroImage + heroGallery for carousels and previews.',
+      required: false,
+    },
     repoUrl: {
       type: 'string',
       description: 'Repository URL',

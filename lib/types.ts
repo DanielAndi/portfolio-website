@@ -9,6 +9,10 @@ export interface Project {
   tech: string[]
   status: string
   heroImage: string
+  /** Extra slides after heroImage (screens, GIFs, alternate views). */
+  heroGallery?: string[]
+  /** Ordered hero slides with captions; overrides heroImage + heroGallery when present. */
+  heroSlides?: { src: string; caption: string }[]
   repoUrl?: string
   liveUrl?: string
   extraLinks?: { label: string; url: string }[]
@@ -21,7 +25,8 @@ export interface Project {
   }
 }
 
-export interface ProjectFiltersProps {
+export interface ProjectsRefineToolbarProps {
+  activeSkillId: string | null
   tags: string[]
   selectedTags: string[]
   onTagsChange: (tags: string[]) => void
