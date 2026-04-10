@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# contentlayer (generated cache)
+.contentlayer/.cache/
+
+# cursor plans (local)
+.cursor/plans/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
