@@ -5,13 +5,13 @@ import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { cn } from '@/lib/utils'
 
 const DEFAULT_RESUME_PATH = '/resume.pdf'
 
 const navigation = [
   { name: 'Home', href: '#hero', fallback: '/', icon: Home },
-  { name: 'About', href: '#about', fallback: '/#about' },
   { name: 'Skills', href: '#skills', fallback: '/#skills' },
   { name: 'Projects', href: '#projects', fallback: '/#projects' },
   { name: 'Contact', href: '#contact', fallback: '/#contact' },
@@ -56,12 +56,15 @@ export function Sidebar() {
         )}
       >
         <div className="flex flex-col h-full p-8">
-          <div className="mb-8">
-            <h1 className="text-2xl font-bold text-foreground mb-2">
-              Daniel
-            </h1>
-            <p className="text-muted-foreground mb-1">{subtitle}</p>
-            <p className="text-sm text-muted-foreground">Based in Phoenix, AZ</p>
+          <div className="mb-8 flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <h1 className="text-2xl font-bold text-foreground mb-2">
+                Daniel
+              </h1>
+              <p className="text-muted-foreground mb-1">{subtitle}</p>
+              <p className="text-sm text-muted-foreground">Based in Phoenix, AZ</p>
+            </div>
+            <ThemeToggle />
           </div>
 
           <nav className="flex-1">
