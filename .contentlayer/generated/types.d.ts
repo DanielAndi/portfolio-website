@@ -29,6 +29,10 @@ export type Project = {
   status: string
   /** Hero image path */
   heroImage: string
+  /** Additional hero images or GIFs (gameplay, UI flow); shown in order after heroImage with a next control on the project page */
+  heroGallery?: string[] | undefined
+  /** Ordered hero slides: [{ src: string; caption: string }]. When present, this overrides heroImage + heroGallery for carousels and previews. */
+  heroSlides?: any | undefined
   /** Repository URL */
   repoUrl?: string | undefined
   /** Live demo URL */

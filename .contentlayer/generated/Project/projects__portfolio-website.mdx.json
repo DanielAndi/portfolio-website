@@ -1,0 +1,50 @@
+{
+  "title": "Portfolio Website",
+  "slug": "portfolio-website",
+  "summary": "Personal portfolio with MDX case studies, project filtering, responsive layout, and polished motion—built as a showcase for full-stack and creative work.",
+  "role": "Designer & Developer",
+  "dates": "2024 – Present",
+  "tech": [
+    "Next.js",
+    "TypeScript",
+    "React",
+    "Tailwind CSS",
+    "Contentlayer",
+    "MDX",
+    "Framer Motion"
+  ],
+  "status": "In Progress",
+  "heroImage": "/images/projects/portfolio-website/project-placeholder.svg",
+  "repoUrl": "https://github.com/DanielAndi/portfolio-website",
+  "liveUrl": "https://portfolio-website-jk9m.vercel.app/",
+  "featured": true,
+  "tags": [
+    "web",
+    "nextjs",
+    "typescript",
+    "tailwind",
+    "react",
+    "contentlayer",
+    "mdx",
+    "framer-motion",
+    "vercel"
+  ],
+  "skills": [
+    "frontend",
+    "cloud"
+  ],
+  "body": {
+    "raw": "\n# Project overview\n\nThis site is both **the product and the case study**: content-driven project pages, technology filters, skill-based browsing, and a layout tuned for reading and navigation on any screen size.\n\n## Highlights\n\n- **MDX + Contentlayer** for project content with a typed, rebuild-friendly pipeline.\n- **Framer Motion** for section and card motion with respect for reduced-motion preferences.\n- **Structured frontmatter** (tech stacks, tags, hero galleries) powering cards, filters, and SEO.\n\n## Next steps\n\nReplace the hero placeholder with a full-bleed screenshot or short loop of the live site when ready.\n",
+    "code": "var Component=(()=>{var p=Object.create;var i=Object.defineProperty;var u=Object.getOwnPropertyDescriptor;var f=Object.getOwnPropertyNames;var g=Object.getPrototypeOf,m=Object.prototype.hasOwnProperty;var w=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),y=(t,e)=>{for(var n in e)i(t,n,{get:e[n],enumerable:!0})},l=(t,e,n,s)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of f(e))!m.call(t,o)&&o!==n&&i(t,o,{get:()=>e[o],enumerable:!(s=u(e,o))||s.enumerable});return t};var j=(t,e,n)=>(n=t!=null?p(g(t)):{},l(e||!t||!t.__esModule?i(n,\"default\",{value:t,enumerable:!0}):n,t)),b=t=>l(i({},\"__esModule\",{value:!0}),t);var c=w((M,a)=>{a.exports=_jsx_runtime});var v={};y(v,{default:()=>h,frontmatter:()=>x});var r=j(c()),x={slug:\"portfolio-website\",title:\"Portfolio Website\",summary:\"Personal portfolio with MDX case studies, project filtering, responsive layout, and polished motion\\u2014built as a showcase for full-stack and creative work.\",role:\"Designer & Developer\",dates:\"2024 \\u2013 Present\",tech:[\"Next.js\",\"TypeScript\",\"React\",\"Tailwind CSS\",\"Contentlayer\",\"MDX\",\"Framer Motion\"],status:\"In Progress\",heroImage:\"/images/projects/portfolio-website/project-placeholder.svg\",repoUrl:\"https://github.com/DanielAndi/portfolio-website\",liveUrl:\"https://portfolio-website-jk9m.vercel.app/\",featured:!0,tags:[\"web\",\"nextjs\",\"typescript\",\"tailwind\",\"react\",\"contentlayer\",\"mdx\",\"framer-motion\",\"vercel\"],skills:[\"frontend\",\"cloud\"]};function d(t){let e={h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...t.components};return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,r.jsxs)(e.p,{children:[\"This site is both \",(0,r.jsx)(e.strong,{children:\"the product and the case study\"}),\": content-driven project pages, technology filters, skill-based browsing, and a layout tuned for reading and navigation on any screen size.\"]}),`\n`,(0,r.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,r.jsxs)(e.ul,{children:[`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"MDX + Contentlayer\"}),\" for project content with a typed, rebuild-friendly pipeline.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Framer Motion\"}),\" for section and card motion with respect for reduced-motion preferences.\"]}),`\n`,(0,r.jsxs)(e.li,{children:[(0,r.jsx)(e.strong,{children:\"Structured frontmatter\"}),\" (tech stacks, tags, hero galleries) powering cards, filters, and SEO.\"]}),`\n`]}),`\n`,(0,r.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,r.jsx)(e.p,{children:\"Replace the hero placeholder with a full-bleed screenshot or short loop of the live site when ready.\"})]})}function h(t={}){let{wrapper:e}=t.components||{};return e?(0,r.jsx)(e,{...t,children:(0,r.jsx)(d,{...t})}):d(t)}return b(v);})();\n;return Component;"
+  },
+  "_id": "projects/portfolio-website.mdx",
+  "_raw": {
+    "sourceFilePath": "projects/portfolio-website.mdx",
+    "sourceFileName": "portfolio-website.mdx",
+    "sourceFileDir": "projects",
+    "contentType": "mdx",
+    "flattenedPath": "projects/portfolio-website"
+  },
+  "type": "Project",
+  "url": "/projects/portfolio-website"
+}
