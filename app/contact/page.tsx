@@ -189,7 +189,7 @@ export default function ContactPage() {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/daniel-grijalva/"
+                  href={config.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-lg bg-muted text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors duration-200"

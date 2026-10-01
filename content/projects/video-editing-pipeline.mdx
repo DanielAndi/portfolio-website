@@ -1,36 +1,45 @@
 ---
 slug: video-editing-pipeline
-title: Video Editing Pipeline
-summary: End-to-end workflow for ingest, proxy editing, color, and delivery—scripted folder structure, naming conventions, and export presets for consistent output.
-role: Pipeline Designer / Editor
-dates: 2023 – Present
+title: CreatorOS — Gameplay Video Pipeline
+summary: Internal video automation tool actively used for a Bavolar Studios YouTube channel, built around a configurable Python and FFmpeg pipeline.
+role: Developer / Creator
+dates: Ongoing
 tech:
-  - DaVinci Resolve
+  - Python
   - FFmpeg
-  - Shell scripting
-  - Adobe Premiere (optional)
-status: In Progress
+  - YAML
+  - Pydantic
+  - Whisper (optional)
+status: In Use / Active Development
 heroImage: /images/projects/video-editing-pipeline/project-placeholder.svg
-featured: false
+featured: true
 tags:
+  - python
   - video
-  - post-production
   - ffmpeg
-  - workflow
+  - automation
 skills:
   - ai-automation
 ---
 
 # Project overview
 
-A **repeatable pipeline** for personal and project video work: standardized ingest, proxies for smooth editing, consistent timeline organization, and export ladders for web and archival masters.
+CreatorOS is an internal Bavolar Studios tool that I actively use for my YouTube channel's gameplay-video workflow. Its current implementation is a configurable video-processing pipeline, with ongoing development guided by that use.
 
-## Highlights
+Bavolar Studios brings together my YouTube channels, freelance development, and work on games, apps, and services.
 
-- **Folder templates** and naming so assets stay traceable across revisions.
-- **FFmpeg** helpers for transcode, loudness, and batch exports where NLE automation is thin.
-- **Preset libraries** for recurring deliverables (e.g. portfolio clips, social cuts).
+## Engineering approach
 
-## Next steps
+- **Python CLI and YAML profiles** configure processing stages for different editing workflows.
+- **Staged processing** separates ingest, audio cleanup, transcription, clip selection, timeline assembly, and rendering.
+- **FFmpeg** handles media processing; optional Whisper integrations support transcription.
+- **Per-job workspaces** organize intermediate artifacts and logs by stage, making individual runs easier to inspect.
+- **Optional narrative assistance** and review workflows keep creator decisions part of the editing process.
 
-Add `extraLinks` (e.g. sample playlist or documentation) when you want them surfaced in the project sidebar.
+## Current use
+
+The tool is in active internal use for my channel while development continues. That workflow helps guide improvements to the editing process.
+
+## Future direction
+
+I want to develop CreatorOS into a monetized product. The longer-term goal is to help creators turn gameplay or livestream recordings into videos with the quality and publishing frequency associated with a production team. That is a product goal, not a demonstrated outcome of the current pipeline.

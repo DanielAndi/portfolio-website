@@ -23,12 +23,12 @@ export const fallbackProjects = [
   },
   {
     slug: 'phytopi-controlled-environment',
-    title: 'Phytopi Controlled Environment System',
-    summary: 'Advanced controlled environment agriculture system with automated climate control, nutrient management, and IoT monitoring for optimal plant growth.',
-    role: 'Embedded Systems & IoT Developer',
-    dates: 'March 2024 – May 2024',
-    tech: ['Arduino', 'Python', 'React', 'MQTT', 'Docker', 'PostgreSQL', 'Grafana'],
-    status: 'Completed',
+    title: 'PhytoPi Controlled Environment System',
+    summary: 'Team-built plant monitoring system with a C Raspberry Pi controller, local SQLite sensor persistence, Supabase sync, and a Flutter dashboard.',
+    role: 'Team contributor',
+    dates: 'GCU capstone project',
+    tech: ['C', 'Raspberry Pi', 'SQLite', 'Supabase', 'Flutter / Dart', 'Python'],
+    status: 'Team project',
     heroImage: '/images/projects/phytopi-controlled-environment/phytopi-dashboard.png',
     heroSlides: [
       {
@@ -73,9 +73,9 @@ export const fallbackProjects = [
         caption: 'Capstone team photo.',
       },
     ],
-    repoUrl: 'https://github.com/danielog/phytopi-system',
+    repoUrl: 'https://github.com/nolantuttle/PhytoPi',
     featured: true,
-    tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'ml'],
+    tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'python', 'c', 'sqlite'],
     skills: ['iot', 'cloud', 'ai-automation'],
     url: '/projects/phytopi-controlled-environment',
     body: {

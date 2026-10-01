@@ -14,7 +14,14 @@ try {
 }
 
 export function getFeaturedProjects(): Project[] {
-  return allProjects.filter((project) => project.featured)
+  const priority = ['bramblewild', 'phytopi-controlled-environment', 'video-editing-pipeline']
+  const rank = (project: Project) => {
+    const index = priority.indexOf(project.slug)
+    return index === -1 ? priority.length : index
+  }
+  return allProjects
+    .filter((project) => project.featured)
+    .sort((a, b) => rank(a) - rank(b))
 }
 
 
@@ -66,4 +73,3 @@ export function getProjectsBySkillProfile(skillId: string): Project[] {
   )
   return sortProjects(filtered)
 }
-

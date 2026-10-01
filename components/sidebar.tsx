@@ -7,11 +7,13 @@ import { Github, Linkedin, Mail, FileText, Menu, X, Home } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { cn } from '@/lib/utils'
+import { config } from '@/lib/config'
 
 const DEFAULT_RESUME_PATH = '/resume.pdf'
 
 const navigation = [
   { name: 'Home', href: '#hero', fallback: '/', icon: Home },
+  { name: 'Experience', href: '#experience', fallback: '/#experience' },
   { name: 'Skills', href: '#skills', fallback: '/#skills' },
   { name: 'Projects', href: '#projects', fallback: '/#projects' },
   { name: 'Contact', href: '#contact', fallback: '/#contact' },
@@ -106,7 +108,7 @@ export function Sidebar() {
                 <Github size={20} />
               </a>
               <a
-                href="https://www.linkedin.com/feed/"
+                href={config.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors duration-200 focus-ring"

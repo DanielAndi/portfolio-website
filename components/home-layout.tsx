@@ -75,7 +75,7 @@ export function HomeLayout({
               <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-foreground">About me</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  B.S. Software Engineering student at Grand Canyon University (Expected Apr 2026)
+                  B.S. Software Engineering, Grand Canyon University — completed April 2026.
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   I&apos;m a software engineer with a strong foundation in computer science who enjoys turning ideas into reliable, useful systems.
@@ -103,6 +103,26 @@ export function HomeLayout({
           </div>
         </Section>
       </div>
+
+      {/* Confirmed internship experience */}
+      <Section id="experience" title="Experience">
+        <div className="card p-6 lg:p-8 max-w-3xl">
+          <p className="text-sm text-muted-foreground mb-2">TUHSD · May 2026–Present</p>
+          <h3 className="text-xl font-semibold text-foreground mb-4">
+            IT Intern | Unity VR Development
+          </h3>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            I develop The Vanishing of Bramblewild using Unity and Dreamscape during
+            my IT internship at TUHSD, with engineering
+            and AI-assisted workflows.
+          </p>
+          <div className="flex flex-wrap gap-2 mt-6">
+            {['Unity', 'Dreamscape', 'AI-assisted workflows'].map((skill) => (
+              <Badge key={skill} variant="secondary">{skill}</Badge>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       {/* Skills Section */}
       <Section id="skills" title="Skills & Technologies">
@@ -167,8 +187,9 @@ export function HomeLayout({
         <div className="min-h-[min(75dvh,52rem)] flex flex-col justify-center items-center px-2">
           <div className="max-w-2xl mx-auto text-center w-full">
             <p className="text-lg sm:text-xl text-muted-foreground mb-10 sm:mb-12 leading-relaxed">
-              I&apos;m always interested in new opportunities and exciting projects.
-              Let&apos;s discuss how we can work together to bring your ideas to life.
+              I&apos;m seeking full-time roles in software engineering, automation,
+              and Unity/simulation, with interest in select IoT opportunities.
+              I&apos;m open to opportunities across the US.
             </p>
             <Button asChild size="lg" className="text-base px-8 py-6 h-auto">
               <Link href="/contact#contact-form">

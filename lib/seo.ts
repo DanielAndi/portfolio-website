@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { config } from './config'
 
 interface SEOProps {
   title?: string
@@ -10,14 +11,14 @@ interface SEOProps {
 
 const siteConfig = {
   name: 'Daniel',
-  title: 'Daniel - Full Stack Developer',
-  description: 'Full Stack Developer specializing in modern web technologies. Building beautiful, performant, and accessible web experiences.',
+  title: 'Daniel - Software Engineer',
+  description: 'Software engineering graduate from Grand Canyon University, April 2026. Seeking full-time software, automation, and Unity/simulation opportunities across the US.',
   url: 'https://danielog.dev',
   ogImage: '/og.jpg',
   links: {
     twitter: 'https://twitter.com/danielog',
     github: 'https://github.com/danielog',
-    linkedin: 'https://linkedin.com/in/danielog',
+    linkedin: config.social.linkedin,
   },
 }
 

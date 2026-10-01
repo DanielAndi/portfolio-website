@@ -1,30 +1,35 @@
 {
-  "title": "Bakery Website",
+  "title": "Bakery Ordering Prototype",
   "slug": "bakery-website",
-  "summary": "Marketing site for a bakery with menu highlights, hours, and contact—fast, accessible, and easy to update.",
-  "role": "Full Stack Developer",
-  "dates": "2024 – Present",
+  "summary": "Bakery ordering application prototype with customer customization, authentication, admin order views, and Stripe Checkout integration code. Paused before verified production delivery.",
+  "role": "Application Development",
+  "dates": "Paused",
   "tech": [
     "Next.js",
     "TypeScript",
     "React",
-    "Tailwind CSS"
+    "Tailwind CSS",
+    "Supabase",
+    "PostgreSQL",
+    "Stripe"
   ],
-  "status": "In Progress",
+  "status": "Paused",
   "heroImage": "/images/projects/bakery-website/project-placeholder.svg",
   "featured": false,
   "tags": [
     "web",
     "nextjs",
-    "marketing",
-    "tailwind"
+    "supabase",
+    "stripe",
+    "prototype"
   ],
   "skills": [
-    "frontend"
+    "frontend",
+    "cloud"
   ],
   "body": {
-    "raw": "\n# Project overview\n\nA **content-forward** bakery site emphasizing photography, seasonal menus, and clear calls to action (order, visit, contact). Built for performance (static generation where possible), accessibility, and simple deployment.\n\n## Highlights\n\n- **Responsive layout** tuned for mobile visitors discovering the shop on the go.\n- **Structured content** for menu sections and location details.\n- **SEO-friendly** metadata and semantic HTML.\n\n## Next steps\n\nReplace the placeholder hero with real photography, and set `liveUrl` and/or `repoUrl` in frontmatter when the site is published.\n",
-    "code": "var Component=(()=>{var p=Object.create;var s=Object.defineProperty;var g=Object.getOwnPropertyDescriptor;var u=Object.getOwnPropertyNames;var m=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var y=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)s(t,r,{get:e[r],enumerable:!0})},a=(t,e,r,o)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let i of u(e))!f.call(t,i)&&i!==r&&s(t,i,{get:()=>e[i],enumerable:!(o=g(e,i))||o.enumerable});return t};var w=(t,e,r)=>(r=t!=null?p(m(t)):{},a(e||!t||!t.__esModule?s(r,\"default\",{value:t,enumerable:!0}):r,t)),x=t=>a(s({},\"__esModule\",{value:!0}),t);var c=y((_,l)=>{l.exports=_jsx_runtime});var k={};b(k,{default:()=>d,frontmatter:()=>j});var n=w(c()),j={slug:\"bakery-website\",title:\"Bakery Website\",summary:\"Marketing site for a bakery with menu highlights, hours, and contact\\u2014fast, accessible, and easy to update.\",role:\"Full Stack Developer\",dates:\"2024 \\u2013 Present\",tech:[\"Next.js\",\"TypeScript\",\"React\",\"Tailwind CSS\"],status:\"In Progress\",heroImage:\"/images/projects/bakery-website/project-placeholder.svg\",featured:!1,tags:[\"web\",\"nextjs\",\"marketing\",\"tailwind\"],skills:[\"frontend\"]};function h(t){let e={code:\"code\",h1:\"h1\",h2:\"h2\",li:\"li\",p:\"p\",strong:\"strong\",ul:\"ul\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"A \",(0,n.jsx)(e.strong,{children:\"content-forward\"}),\" bakery site emphasizing photography, seasonal menus, and clear calls to action (order, visit, contact). Built for performance (static generation where possible), accessibility, and simple deployment.\"]}),`\n`,(0,n.jsx)(e.h2,{children:\"Highlights\"}),`\n`,(0,n.jsxs)(e.ul,{children:[`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Responsive layout\"}),\" tuned for mobile visitors discovering the shop on the go.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"Structured content\"}),\" for menu sections and location details.\"]}),`\n`,(0,n.jsxs)(e.li,{children:[(0,n.jsx)(e.strong,{children:\"SEO-friendly\"}),\" metadata and semantic HTML.\"]}),`\n`]}),`\n`,(0,n.jsx)(e.h2,{children:\"Next steps\"}),`\n`,(0,n.jsxs)(e.p,{children:[\"Replace the placeholder hero with real photography, and set \",(0,n.jsx)(e.code,{children:\"liveUrl\"}),\" and/or \",(0,n.jsx)(e.code,{children:\"repoUrl\"}),\" in frontmatter when the site is published.\"]})]})}function d(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(h,{...t})}):h(t)}return x(k);})();\n;return Component;"
+    "raw": "\n# Project overview\n\nDeveloped a bakery ordering application prototype using Next.js, TypeScript, and Supabase, with customer customization forms, authentication, admin order views, database migrations, and Stripe Checkout integration code.\n\n## Current status\n\nThe project is paused before verified production delivery. The implementation includes frontend and backend code; deployment and end-to-end acceptance remain unverified.\n",
+    "code": "var Component=(()=>{var l=Object.create;var i=Object.defineProperty;var m=Object.getOwnPropertyDescriptor;var h=Object.getOwnPropertyNames;var y=Object.getPrototypeOf,f=Object.prototype.hasOwnProperty;var g=(t,e)=>()=>(e||t((e={exports:{}}).exports,e),e.exports),b=(t,e)=>{for(var r in e)i(t,r,{get:e[r],enumerable:!0})},s=(t,e,r,a)=>{if(e&&typeof e==\"object\"||typeof e==\"function\")for(let o of h(e))!f.call(t,o)&&o!==r&&i(t,o,{get:()=>e[o],enumerable:!(a=m(e,o))||a.enumerable});return t};var j=(t,e,r)=>(r=t!=null?l(y(t)):{},s(e||!t||!t.__esModule?i(r,\"default\",{value:t,enumerable:!0}):r,t)),v=t=>s(i({},\"__esModule\",{value:!0}),t);var c=g((k,d)=>{d.exports=_jsx_runtime});var w={};b(w,{default:()=>u,frontmatter:()=>x});var n=j(c()),x={slug:\"bakery-website\",title:\"Bakery Ordering Prototype\",summary:\"Bakery ordering application prototype with customer customization, authentication, admin order views, and Stripe Checkout integration code. Paused before verified production delivery.\",role:\"Application Development\",dates:\"Paused\",tech:[\"Next.js\",\"TypeScript\",\"React\",\"Tailwind CSS\",\"Supabase\",\"PostgreSQL\",\"Stripe\"],status:\"Paused\",heroImage:\"/images/projects/bakery-website/project-placeholder.svg\",featured:!1,tags:[\"web\",\"nextjs\",\"supabase\",\"stripe\",\"prototype\"],skills:[\"frontend\",\"cloud\"]};function p(t){let e={h1:\"h1\",h2:\"h2\",p:\"p\",...t.components};return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(e.h1,{children:\"Project overview\"}),`\n`,(0,n.jsx)(e.p,{children:\"Developed a bakery ordering application prototype using Next.js, TypeScript, and Supabase, with customer customization forms, authentication, admin order views, database migrations, and Stripe Checkout integration code.\"}),`\n`,(0,n.jsx)(e.h2,{children:\"Current status\"}),`\n`,(0,n.jsx)(e.p,{children:\"The project is paused before verified production delivery. The implementation includes frontend and backend code; deployment and end-to-end acceptance remain unverified.\"})]})}function u(t={}){let{wrapper:e}=t.components||{};return e?(0,n.jsx)(e,{...t,children:(0,n.jsx)(p,{...t})}):p(t)}return v(w);})();\n;return Component;"
   },
   "_id": "projects/bakery-website.mdx",
   "_raw": {

@@ -5,7 +5,8 @@ export type SkillProfile = {
   label: string
   /** Compact label for tight UI (e.g. filter chips on small screens). */
   shortLabel: string
-  resumePath: string
+  /** Null until a reviewed, non-placeholder PDF is available. */
+  resumePath: string | null
 }
 
 export const skillProfiles: SkillProfile[] = [
@@ -13,25 +14,25 @@ export const skillProfiles: SkillProfile[] = [
     id: 'cloud',
     label: 'Cloud / Backend Engineer',
     shortLabel: 'Cloud',
-    resumePath: '/resumes/cloud-engineer.pdf',
+    resumePath: null,
   },
   {
     id: 'frontend',
     label: 'Frontend Engineer',
     shortLabel: 'Frontend',
-    resumePath: '/resumes/frontend-engineer.pdf',
+    resumePath: null,
   },
   {
     id: 'ai-automation',
     label: 'AI / Automation',
     shortLabel: 'AI',
-    resumePath: '/resumes/ai-automation.pdf',
+    resumePath: null,
   },
   {
     id: 'iot',
     label: 'IoT / Embedded',
     shortLabel: 'IoT',
-    resumePath: '/resumes/iot-engineer.pdf',
+    resumePath: null,
   },
 ]
 
