@@ -116,6 +116,12 @@ export function HomeLayout({
             my IT internship at TUHSD, with engineering
             and AI-assisted workflows.
           </p>
+          <p className="text-lg text-muted-foreground leading-relaxed mt-4">
+            I translated a six-scene lesson plan into requirements and incremental
+            milestones, and showed stakeholders a desktop Scenes 0–1 demo in my
+            first month. The first lab demo is being prepared and awaits Dreamscape
+            server access for deployment.
+          </p>
           <div className="flex flex-wrap gap-2 mt-6">
             {['Unity', 'Dreamscape', 'AI-assisted workflows'].map((skill) => (
               <Badge key={skill} variant="secondary">{skill}</Badge>
