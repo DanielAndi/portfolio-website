@@ -119,11 +119,13 @@ export function HomeLayout({
           <p className="text-lg text-muted-foreground leading-relaxed mt-4">
             I translated a six-scene lesson plan into requirements and incremental
             milestones, and showed stakeholders a desktop Scenes 0–1 demo in my
-            first month. The first lab demo is being prepared and awaits Dreamscape
-            server access for deployment.
+            first month. The first in-lab demo has since been presented to
+            stakeholders with positive feedback, and release is planned for
+            January 2027. I also write edit-mode and play-mode tests with the
+            Unity Test Framework.
           </p>
           <div className="flex flex-wrap gap-2 mt-6">
-            {['Unity', 'Dreamscape', 'AI-assisted workflows'].map((skill) => (
+            {['Unity', 'Dreamscape', 'Unity Test Framework', 'AI-assisted workflows'].map((skill) => (
               <Badge key={skill} variant="secondary">{skill}</Badge>
             ))}
           </div>

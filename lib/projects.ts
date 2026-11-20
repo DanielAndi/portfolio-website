@@ -14,7 +14,12 @@ try {
 }
 
 export function getFeaturedProjects(): Project[] {
-  const priority = ['bramblewild', 'phytopi-controlled-environment', 'video-editing-pipeline']
+  const priority = [
+    'bramblewild',
+    'phytopi-controlled-environment',
+    'continuity-hub',
+    'video-editing-pipeline',
+  ]
   const rank = (project: Project) => {
     const index = priority.indexOf(project.slug)
     return index === -1 ? priority.length : index

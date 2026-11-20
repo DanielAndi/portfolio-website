@@ -2,6 +2,7 @@
 
 import projects__bakeryWebsiteMdx from './projects__bakery-website.mdx.json' with { type: 'json' }
 import projects__bramblewildMdx from './projects__bramblewild.mdx.json' with { type: 'json' }
+import projects__continuityHubMdx from './projects__continuity-hub.mdx.json' with { type: 'json' }
 import projects__flappyBirdEmbeddedMdx from './projects__flappy-bird-embedded.mdx.json' with { type: 'json' }
 import projects__phytopiControlledEnvironmentMdx from './projects__phytopi-controlled-environment.mdx.json' with { type: 'json' }
 import projects__portfolioWebsiteMdx from './projects__portfolio-website.mdx.json' with { type: 'json' }
@@ -10,4 +11,4 @@ import projects__schoolHallwayOpenglMdx from './projects__school-hallway-opengl.
 import projects__videoEditingPipelineMdx from './projects__video-editing-pipeline.mdx.json' with { type: 'json' }
 import projects__vrCashierSimulatorMdx from './projects__vr-cashier-simulator.mdx.json' with { type: 'json' }
 
-export const allProjects = [projects__bakeryWebsiteMdx, projects__bramblewildMdx, projects__flappyBirdEmbeddedMdx, projects__phytopiControlledEnvironmentMdx, projects__portfolioWebsiteMdx, projects__rimworldModMdx, projects__schoolHallwayOpenglMdx, projects__videoEditingPipelineMdx, projects__vrCashierSimulatorMdx]
+export const allProjects = [projects__bakeryWebsiteMdx, projects__bramblewildMdx, projects__continuityHubMdx, projects__flappyBirdEmbeddedMdx, projects__phytopiControlledEnvironmentMdx, projects__portfolioWebsiteMdx, projects__rimworldModMdx, projects__schoolHallwayOpenglMdx, projects__videoEditingPipelineMdx, projects__vrCashierSimulatorMdx]

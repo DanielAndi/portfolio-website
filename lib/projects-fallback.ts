@@ -83,6 +83,35 @@ export const fallbackProjects = [
     }
   },
   {
+    slug: 'continuity-hub',
+    title: 'Continuity Hub · AWS Cloudathon 2026',
+    summary:
+      "Hackathon prototype for Circle the City's patient communication challenge, with an Amazon Connect call line, a serverless AWS backend, and a React staff web app that I built and deployed.",
+    role: 'Prototype developer (four-person team)',
+    dates: 'April 10–12, 2026',
+    tech: [
+      'AWS SAM',
+      'AWS Lambda',
+      'Python',
+      'Amazon DynamoDB',
+      'Amazon Cognito',
+      'API Gateway (HTTP API)',
+      'Amazon EventBridge',
+      'Amazon Connect',
+      'React',
+      'TypeScript',
+    ],
+    status: 'Prototype · hackathon',
+    heroImage: '/images/projects/continuity-hub/project-placeholder.svg',
+    featured: true,
+    tags: ['aws', 'serverless', 'python', 'react', 'typescript', 'prototype'],
+    skills: ['cloud', 'frontend'],
+    url: '/projects/continuity-hub',
+    body: {
+      code: '<!-- MDX content would be here -->',
+    },
+  },
+  {
     slug: 'portfolio-website',
     title: 'Portfolio Website',
     summary:

@@ -1,0 +1,56 @@
+---
+slug: continuity-hub
+title: Continuity Hub · AWS Cloudathon 2026
+summary: Hackathon prototype for Circle the City's patient communication challenge, with an Amazon Connect call line, a serverless AWS backend, and a React staff web app that I built and deployed.
+role: Prototype developer (four-person team)
+dates: April 10–12, 2026
+tech:
+  - AWS SAM
+  - AWS Lambda
+  - Python
+  - Amazon DynamoDB
+  - Amazon Cognito
+  - API Gateway (HTTP API)
+  - Amazon EventBridge
+  - Amazon Connect
+  - React
+  - TypeScript
+status: Prototype · hackathon
+heroImage: /images/projects/continuity-hub/project-placeholder.svg
+featured: true
+tags:
+  - aws
+  - serverless
+  - python
+  - react
+  - typescript
+  - prototype
+skills:
+  - cloud
+  - frontend
+---
+
+# Project overview
+
+Continuity Hub is a prototype I built during AWS Cloudathon 2026, a hackathon held April 10–12, 2026. The challenge was patient communication and care-team coordination for Circle the City, a health center in Maricopa County. Patients often call from shared or borrowed phones and can miss callbacks, so the prototype gives each request a short continuity code that links later calls back to the same request.
+
+We were a four-person team. I built and deployed the prototype by myself, while the other three teammates researched and discussed the infrastructure the team intended to use.
+
+## What I built
+
+- **Infrastructure as code:** an AWS SAM template defines the stack.
+- **Three Lambda functions:** a REST API, an Amazon Connect integration, and an outreach function.
+- **DynamoDB:** stores care requests and their event history.
+- **Cognito:** staff sign-in, with separate staff and admin groups.
+- **HTTP API with JWT authorization:** API Gateway checks Cognito tokens before requests reach the REST function.
+- **EventBridge schedule:** runs the outreach function on a timer to flag open requests that are past due.
+- **Amazon Connect call center:** an inbound call flow with automated voice and keypad prompts. It calls the Connect Lambda to create or match a request and route the caller to a queue.
+- **Staff web app:** React and TypeScript pages for intake, the open backlog, request details, outreach, and admin user management.
+
+## Testing
+
+I wrote a Python smoke test and a script that runs the Connect Lambda against simulated Amazon Connect call events: a new call, a returning call with a continuity code, and an error case.
+
+## Current stage
+
+Continuity Hub is a functional wireframe, not a finished product. It ran on AWS during the hackathon, but it is not fully fleshed out, and it was not used in the team's final submission. What it did was show the team's vision for the system as working software.
