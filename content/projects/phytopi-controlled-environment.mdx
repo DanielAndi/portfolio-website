@@ -1,27 +1,39 @@
 ---
 slug: phytopi-controlled-environment
 title: PhytoPi Controlled Environment System
-summary: Team-built plant monitoring system with a C Raspberry Pi controller, local SQLite sensor persistence, Supabase sync, and a Flutter dashboard.
-role: Team contributor
+summary: Raspberry Pi system that monitors and controls an indoor plant enclosure, with a C controller, SQLite, Supabase sync, Flutter kiosk, mobile and web apps, and an AI plant-health worker. I designed the system and wrote its software.
+role: System design and all software (two-person capstone)
 dates: GCU capstone project
 tech:
   - C
+  - Python
+  - TypeScript
   - Raspberry Pi
   - SQLite
-  - Supabase
+  - Supabase (PostgreSQL)
   - Flutter / Dart
-  - Python
-status: Team project
+  - Ollama
+  - Docker
+  - GitHub Actions
+status: Completed capstone · presented at Capstone Showcase
 heroImage: /images/projects/phytopi-controlled-environment/phytopi-dashboard.png
 heroSlides:
   - src: /images/projects/phytopi-controlled-environment/phytopi-dashboard.png
     caption: Web dashboard for live telemetry, charts, and device health.
   - src: /images/projects/phytopi-controlled-environment/current-design-concept-prototype-render-v3.0.png
     caption: v3.0 concept render of the controlled-environment enclosure.
-  - src: /images/projects/phytopi-controlled-environment/current-design-concept-electrical-schematic-v2.0.png
-    caption: v2.0 electrical schematic for sensors, power distribution, and Raspberry Pi integration.
   - src: /images/projects/phytopi-controlled-environment/current-design-concept-physical-prototype-v1.0.png
     caption: v1.0 physical prototype of the enclosure assembly.
+  - src: /images/projects/phytopi-controlled-environment/system-architecture.png
+    caption: "Design diagram: system architecture, with the services across the Raspberry Pi, its containers, and the cloud."
+  - src: /images/projects/phytopi-controlled-environment/device-data-flow.jpg
+    caption: "Design diagram: device data flow, showing how readings and images are captured, staged, and uploaded."
+  - src: /images/projects/phytopi-controlled-environment/firmware-flow.jpg
+    caption: "Design diagram: firmware flow, with the sensor-read loop, validation, publish and acknowledge, and command handling."
+  - src: /images/projects/phytopi-controlled-environment/module-uml.jpg
+    caption: "Design diagram: module UML, with the classes and boundaries of the device firmware components."
+  - src: /images/projects/phytopi-controlled-environment/current-design-concept-electrical-schematic-v2.0.png
+    caption: v2.0 electrical schematic for sensors, power distribution, and Raspberry Pi integration.
   - src: /images/projects/phytopi-controlled-environment/capstone-picture-from-above.jpg
     caption: Overhead view of the capstone grow setup and enclosure layout.
   - src: /images/projects/phytopi-controlled-environment/capstone-front-view-inside.jpg
@@ -35,6 +47,7 @@ heroSlides:
   - src: /images/projects/phytopi-controlled-environment/capstone-team-picture.webp
     caption: Capstone team photo.
 repoUrl: https://github.com/nolantuttle/PhytoPi
+liveUrl: https://www.phytopi.com/
 featured: true
 tags:
   - iot
@@ -44,6 +57,7 @@ tags:
   - python
   - c
   - sqlite
+  - typescript
 skills:
   - iot
   - cloud
@@ -52,18 +66,48 @@ skills:
 
 # Project overview
 
-PhytoPi is a team project for monitoring and controlling a plant-growing environment. I contributed to the project as part of the team. The system connects a Raspberry Pi controller, local sensor storage, cloud synchronization, and a Flutter dashboard.
+PhytoPi is an IoT automated plant-care system. It senses environmental conditions, analyzes trends, and triggers adjustments like irrigation, while giving you a fast, real-time dashboard. The project site is at [phytopi.com](https://www.phytopi.com/).
 
-## System architecture
+It was my two-person capstone at Grand Canyon University. I designed the software and hardware architecture and implemented all of the software. My teammate built the hardware.
 
-- **C controller on Raspberry Pi:** manages the device-side sensor and control logic.
-- **SQLite sensor persistence:** stores readings locally before synchronization.
-- **Supabase batch synchronization:** connects local sensor data with the cloud backend.
-- **Flutter / Dart dashboard:** includes authentication and sensor charts.
-- **Python camera and AI integration:** includes an Ollama/Moondream path, optional PlantNet integration, and a stub fallback.
+## How it works
 
-## Engineering context
+- **Sense:** collect environmental readings and camera snapshots.
+- **Analyze:** detect trends and anomalies.
+- **Actuate:** trigger adjustments to lighting, ventilation and watering.
+- **Alert:** notify users and log actions for verification and troubleshooting.
 
-Local persistence and batch synchronization connect the device and cloud portions of the system. The dashboard presents the data, while camera and AI integrations provide a separate path for plant-image analysis.
+The system monitors soil moisture, light levels, temperature, humidity, the water reservoir, and plant health through the camera.
 
-This case study describes the team's implementation. Individual subsystem ownership, live AI accuracy, and hardware validation results are not established here.
+## Architecture: edge, cloud, dashboard
+
+PhytoPi is a split system: an on-device stack for sensing and actuation, and a cloud backend for sync, history and remote access.
+
+- **Edge:** a C controller on the Raspberry Pi reads the sensors, stores readings in SQLite, and drives the actuators. A kiosk screen on the device shows the same dashboard.
+- **Data pipeline:** readings and images are stored locally first, then synced to Supabase (PostgreSQL) for history and remote dashboards.
+- **Control:** settings changed in the kiosk, mobile and web apps flow back through Supabase to the device, which applies them to lighting, ventilation and watering.
+
+## What I built
+
+- **C controller** that stores sensor readings in SQLite and syncs with Supabase, plus a TypeScript edge function for alert notifications.
+- **Flutter kiosk, mobile and web apps** with authentication, live sensor charts, device settings, alerts and an AI Health screen.
+- **AI plant-health worker** in Python that sends camera captures to a local Ollama vision model (Moondream) and falls back to the PlantNet API when the species answer is low-confidence.
+- **CI/CD with GitHub Actions** that ran pytest and C tests on every push. Merges to main automatically updated the Raspberry Pi, which pulled, rebuilt and restarted the C controller and Flutter UI.
+- **Docker containers and systemd services** so the Pi, Linux and macOS environments matched and the controller and UI start on boot.
+
+## Testing
+
+I tested with pytest and Flutter test, and ran the full loop on real hardware: sensor readings on the Pi, sync to Supabase, display in the kiosk, mobile and web apps, and settings flowing back to control the device. We presented the project at Capstone Showcase.
+
+## Design targets
+
+These were the capstone's design targets and budget figures, not measured results:
+
+- At least 80% less manual plant-care labor.
+- Dashboard refresh under 2 seconds.
+- At least three plant-health metrics tracked.
+- Optimized unit cost of $250 or less; prototype hardware spend was $557.88 across 22 logged purchases.
+
+## Scope and limits
+
+PhytoPi is a completed capstone prototype, not a product with customers. The plant-identification model's accuracy was not measured. Some design diagrams above come from earlier design phases and differ in detail from the final build.

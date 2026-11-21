@@ -24,11 +24,23 @@ export const fallbackProjects = [
   {
     slug: 'phytopi-controlled-environment',
     title: 'PhytoPi Controlled Environment System',
-    summary: 'Team-built plant monitoring system with a C Raspberry Pi controller, local SQLite sensor persistence, Supabase sync, and a Flutter dashboard.',
-    role: 'Team contributor',
+    summary:
+      'Raspberry Pi system that monitors and controls an indoor plant enclosure, with a C controller, SQLite, Supabase sync, Flutter kiosk, mobile and web apps, and an AI plant-health worker. I designed the system and wrote its software.',
+    role: 'System design and all software (two-person capstone)',
     dates: 'GCU capstone project',
-    tech: ['C', 'Raspberry Pi', 'SQLite', 'Supabase', 'Flutter / Dart', 'Python'],
-    status: 'Team project',
+    tech: [
+      'C',
+      'Python',
+      'TypeScript',
+      'Raspberry Pi',
+      'SQLite',
+      'Supabase (PostgreSQL)',
+      'Flutter / Dart',
+      'Ollama',
+      'Docker',
+      'GitHub Actions',
+    ],
+    status: 'Completed capstone · presented at Capstone Showcase',
     heroImage: '/images/projects/phytopi-controlled-environment/phytopi-dashboard.png',
     heroSlides: [
       {
@@ -47,6 +59,26 @@ export const fallbackProjects = [
       {
         src: '/images/projects/phytopi-controlled-environment/current-design-concept-physical-prototype-v1.0.png',
         caption: 'v1.0 physical prototype of the enclosure assembly.',
+      },
+      {
+        src: '/images/projects/phytopi-controlled-environment/system-architecture.png',
+        caption:
+          'Design diagram: system architecture, with the services across the Raspberry Pi, its containers, and the cloud.',
+      },
+      {
+        src: '/images/projects/phytopi-controlled-environment/device-data-flow.jpg',
+        caption:
+          'Design diagram: device data flow, showing how readings and images are captured, staged, and uploaded.',
+      },
+      {
+        src: '/images/projects/phytopi-controlled-environment/firmware-flow.jpg',
+        caption:
+          'Design diagram: firmware flow, with the sensor-read loop, validation, publish and acknowledge, and command handling.',
+      },
+      {
+        src: '/images/projects/phytopi-controlled-environment/module-uml.jpg',
+        caption:
+          'Design diagram: module UML, with the classes and boundaries of the device firmware components.',
       },
       {
         src: '/images/projects/phytopi-controlled-environment/capstone-picture-from-above.jpg',
@@ -74,8 +106,9 @@ export const fallbackProjects = [
       },
     ],
     repoUrl: 'https://github.com/nolantuttle/PhytoPi',
+    liveUrl: 'https://www.phytopi.com/',
     featured: true,
-    tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'python', 'c', 'sqlite'],
+    tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'python', 'c', 'sqlite', 'typescript'],
     skills: ['iot', 'cloud', 'ai-automation'],
     url: '/projects/phytopi-controlled-environment',
     body: {
