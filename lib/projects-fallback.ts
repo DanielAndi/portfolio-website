@@ -33,7 +33,7 @@ export const fallbackProjects = [
     ],
     videoUrl: 'https://www.youtube.com/watch?v=NYHhLR82HfI',
     videoCaption: 'Demo video: a walkthrough of the code, then the game running on the board.',
-    repoUrl: 'https://github.com/danielog/flappy-bird-embedded',
+    repoUrl: 'https://github.com/DanielAndi/FlappyBirdDE10LCDv1',
     featured: true,
     tags: ['embedded-systems', 'fpga', 'verilog', 'c', 'hardware-design', 'real-time-systems'],
     skills: ['iot'],
@@ -226,7 +226,7 @@ export const fallbackProjects = [
       },
     ],
     repoUrl: 'https://github.com/DanielAndi/portfolio-website',
-    liveUrl: 'https://portfolio-website-jk9m.vercel.app/',
+    liveUrl: 'https://danielgrijalva.dev/',
     featured: true,
     tags: [
       'web',

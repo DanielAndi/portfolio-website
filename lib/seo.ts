@@ -13,11 +13,10 @@ const siteConfig = {
   name: 'Daniel',
   title: 'Daniel - Software Engineer',
   description: 'Software engineering graduate from Grand Canyon University, April 2026. Seeking full-time software, automation, and Unity/simulation opportunities across the US.',
-  url: 'https://danielog.dev',
-  ogImage: '/og.jpg',
+  url: 'https://www.danielgrijalva.dev',
+  ogImage: '/images/projects/portfolio-website/home.png',
   links: {
-    twitter: 'https://twitter.com/danielog',
-    github: 'https://github.com/danielog',
+    github: 'https://github.com/DanielAndi',
     linkedin: config.social.linkedin,
   },
 }
@@ -59,7 +58,6 @@ export function createMetadata({
       title: fullTitle,
       description,
       images: [image],
-      creator: '@danielog',
     },
     robots: {
       index: true,

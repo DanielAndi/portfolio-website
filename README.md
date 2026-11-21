@@ -2,7 +2,7 @@
 
 A modern, elegant portfolio website built with Next.js 14, featuring a sticky sidebar, smooth animations, and MDX-powered project case studies. Inspired by brittanychiang.com but with an original design.
 
-🔗 **Live Site**: [https://portfolio-website-jk9m.vercel.app/](https://portfolio-website-jk9m.vercel.app/)
+🔗 **Live Site**: [https://danielgrijalva.dev/](https://danielgrijalva.dev/)
 
 <!-- Deployment trigger -->
 
