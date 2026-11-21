@@ -37,6 +37,10 @@ export type Project = {
   repoUrl?: string | undefined
   /** Live demo URL */
   liveUrl?: string | undefined
+  /** YouTube demo video URL, embedded under the hero slides */
+  videoUrl?: string | undefined
+  /** One-line caption shown under the embedded video */
+  videoCaption?: string | undefined
   /** Additional labeled links (e.g. Steam Workshop, docs) */
   extraLinks?: any | undefined
   /** Project metrics */

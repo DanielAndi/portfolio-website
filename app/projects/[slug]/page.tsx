@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { BuildSheet } from '@/components/build-sheet'
 import { ProjectContent } from '@/components/project-content'
 import { ProjectHeroCarousel } from '@/components/project-hero-carousel'
+import { ProjectVideo } from '@/components/project-video'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { getProjectHeroSlideEntries } from '@/lib/project-media'
@@ -87,6 +88,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <div className="mt-10 pt-10 border-t border-border">
           <ProjectHeroCarousel title={project.title} slides={heroSlides} />
         </div>
+
+        {project.videoUrl && (
+          <div className="mt-8">
+            <ProjectVideo
+              title={project.title}
+              url={project.videoUrl}
+              caption={project.videoCaption}
+            />
+          </div>
+        )}
       </div>
 
       {/* Main Content */}

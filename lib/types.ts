@@ -15,6 +15,9 @@ export interface Project {
   heroSlides?: { src: string; caption: string }[]
   repoUrl?: string
   liveUrl?: string
+  /** YouTube demo video, embedded under the hero slides. */
+  videoUrl?: string
+  videoCaption?: string
   extraLinks?: { label: string; url: string }[]
   featured: boolean
   tags?: string[]

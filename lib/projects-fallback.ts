@@ -9,9 +9,30 @@ export const fallbackProjects = [
     tech: ['C (HPS)', 'Verilog', 'Quartus Prime', 'Platform Designer (Qsys)', 'GCC Toolchain', 'AXI-Lite', 'SPI Communication'],
     status: 'Completed',
     heroImage: '/images/projects/flappy-bird-embedded/FlappyBirdDE10LCDv1.jpg',
-    heroGallery: [
-      '/images/projects/flappy-bird-embedded/component_diagram.png',
+    heroSlides: [
+      {
+        src: '/images/projects/flappy-bird-embedded/FlappyBirdDE10LCDv1.jpg',
+        caption:
+          'The Terasic DE10-Standard board with the game running on its LCD.',
+      },
+      {
+        src: '/images/projects/flappy-bird-embedded/demo-board-running.jpg',
+        caption:
+          'Frame from the demo video: the board during play, with the LCD and the seven-segment display lit.',
+      },
+      {
+        src: '/images/projects/flappy-bird-embedded/demo-terminal-build-run.jpg',
+        caption:
+          'Frame from the demo video: building the game with make and starting it on the board over a serial terminal.',
+      },
+      {
+        src: '/images/projects/flappy-bird-embedded/component_diagram.png',
+        caption:
+          'System component diagram.',
+      },
     ],
+    videoUrl: 'https://www.youtube.com/watch?v=NYHhLR82HfI',
+    videoCaption: 'Demo video: a walkthrough of the code, then the game running on the board.',
     repoUrl: 'https://github.com/danielog/flappy-bird-embedded',
     featured: true,
     tags: ['embedded-systems', 'fpga', 'verilog', 'c', 'hardware-design', 'real-time-systems'],
@@ -27,7 +48,7 @@ export const fallbackProjects = [
     summary:
       'Raspberry Pi system that monitors and controls an indoor plant enclosure, with a C controller, SQLite, Supabase sync, Flutter kiosk, mobile and web apps, and an AI plant-health worker. I designed the system and wrote its software.',
     role: 'System design and all software (two-person capstone)',
-    dates: 'GCU capstone project',
+    dates: 'September 2025 – April 2026',
     tech: [
       'C',
       'Python',
@@ -102,10 +123,11 @@ export const fallbackProjects = [
       },
       {
         src: '/images/projects/phytopi-controlled-environment/capstone-team-picture.webp',
-        caption: 'Capstone team photo.',
+        caption:
+          'With my capstone teammate at the 2026 Spring CET Capstone Showcase, beside the PhytoPi device and poster.',
       },
     ],
-    repoUrl: 'https://github.com/nolantuttle/PhytoPi',
+    repoUrl: 'https://github.com/DanielAndi/PhytoPi',
     liveUrl: 'https://www.phytopi.com/',
     featured: true,
     tags: ['iot', 'flutter', 'supabase', 'raspberry-pi', 'python', 'c', 'sqlite', 'typescript'],
@@ -135,7 +157,34 @@ export const fallbackProjects = [
       'TypeScript',
     ],
     status: 'Prototype · hackathon',
-    heroImage: '/images/projects/continuity-hub/project-placeholder.svg',
+    heroImage: '/images/projects/continuity-hub/staff-app-dashboard.png',
+    heroSlides: [
+      {
+        src: '/images/projects/continuity-hub/staff-app-dashboard.png',
+        caption:
+          "Staff dashboard with the open work queue, running locally on the app's built-in sample data.",
+      },
+      {
+        src: '/images/projects/continuity-hub/staff-app-request-detail.png',
+        caption:
+          "Request detail with care context, callback number and routing fields (sample data).",
+      },
+      {
+        src: '/images/projects/continuity-hub/staff-app-intake.png',
+        caption:
+          "Intake screen: match a caller to an open request by continuity code, or create a new care request.",
+      },
+      {
+        src: '/images/projects/continuity-hub/staff-app-outreach.png',
+        caption:
+          "Proactive outreach list of open requests past their callback time (sample data).",
+      },
+      {
+        src: '/images/projects/continuity-hub/staff-app-reports.png',
+        caption:
+          "Reports: requests by category, status and priority (sample data).",
+      },
+    ],
     featured: true,
     tags: ['aws', 'serverless', 'python', 'react', 'typescript', 'prototype'],
     skills: ['cloud', 'frontend'],
@@ -161,7 +210,21 @@ export const fallbackProjects = [
       'Framer Motion',
     ],
     status: 'In Progress',
-    heroImage: '/images/projects/portfolio-website/project-placeholder.svg',
+    heroImage: '/images/projects/portfolio-website/home.png',
+    heroSlides: [
+      {
+        src: '/images/projects/portfolio-website/home.png',
+        caption: 'Home page: introduction, portrait and résumé link.',
+      },
+      {
+        src: '/images/projects/portfolio-website/projects-grid.png',
+        caption: 'Projects page: role and technology filters above the project cards.',
+      },
+      {
+        src: '/images/projects/portfolio-website/project-page.png',
+        caption: 'A project page: status, timeline, summary and the image carousel.',
+      },
+    ],
     repoUrl: 'https://github.com/DanielAndi/portfolio-website',
     liveUrl: 'https://portfolio-website-jk9m.vercel.app/',
     featured: true,

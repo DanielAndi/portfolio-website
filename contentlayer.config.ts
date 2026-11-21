@@ -69,6 +69,16 @@ export const Project = defineDocumentType(() => ({
       description: 'Live demo URL',
       required: false,
     },
+    videoUrl: {
+      type: 'string',
+      description: 'YouTube demo video URL, embedded under the hero slides',
+      required: false,
+    },
+    videoCaption: {
+      type: 'string',
+      description: 'One-line caption shown under the embedded video',
+      required: false,
+    },
     extraLinks: {
       type: 'json',
       description: 'Additional labeled links (e.g. Steam Workshop, docs)',
